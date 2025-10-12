@@ -20,9 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Project A1: WonJYou Scroll Animation
   // ============================================
   
-  // A1: 文字渐显动画
+  // A1: 文字渐显动画 - .about section
   document.querySelectorAll(".project-a1 .animate-text").forEach((textElement) => {
-    textElement.setAttribute("data-text", textElement.textContent.trim());
+    // 创建覆盖层，直接克隆内容
+    const overlay = document.createElement('div');
+    overlay.className = 'text-overlay';
+    overlay.innerHTML = textElement.innerHTML;
+    textElement.appendChild(overlay);
 
     ScrollTrigger.create({
       trigger: textElement,
@@ -31,7 +35,27 @@ document.addEventListener("DOMContentLoaded", () => {
       scrub: 1,
       onUpdate: (self) => {
         const clipValue = Math.max(0, 100 - self.progress * 100);
-        textElement.style.setProperty("--clip-value", `${clipValue}%`);
+        overlay.style.setProperty('--clip-value', `${clipValue}%`);
+      },
+    });
+  });
+
+  // A1: 文字渐显动画 - .services-copy section
+  document.querySelectorAll(".project-a1 .copy-text").forEach((textElement) => {
+    // 创建覆盖层，直接克隆内容
+    const overlay = document.createElement('div');
+    overlay.className = 'copy-overlay';
+    overlay.innerHTML = textElement.innerHTML;
+    textElement.appendChild(overlay);
+
+    ScrollTrigger.create({
+      trigger: textElement,
+      start: "top 50%",
+      end: "bottom 50%",
+      scrub: 1,
+      onUpdate: (self) => {
+        const clipValue = Math.max(0, 100 - self.progress * 100);
+        overlay.style.setProperty('--clip-value', `${clipValue}%`);
       },
     });
   });
