@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 .project-a2 {
-    /* 采用 A3 的颜色方案 */
-    --dark: #1c140f;  /* A3 深棕色 */
-    --light: #efe6cf; /* A3 米色 */
+    /* 使用米黄色+橙红色配色方案 */
+    --dark: #E85D3F;  /* 橙红色 */
+    --light: #EBD9B4; /* 米黄色 */
     font-family: "Roboto Condensed", sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
@@ -52,7 +52,7 @@
 }
 
 .project-a2 .sticky-text-3 .text-container {
-    background-color: #e3d7b9; /* A3 浅米色背景，用于渐隐动画 */
+    background-color: #F4E4C1; /* 浅米黄色背景，用于渐隐动画 */
 }
 
 .project-a2 .text-container {

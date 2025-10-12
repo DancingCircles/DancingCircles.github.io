@@ -1,13 +1,13 @@
 /* Global Reset and Base Styles */
-/* 统一采用黄黑配色 */
+/* 米黄色 + 橙红色配色方案 */
 :root {
-    --bg-primary: #E8F51D;      /* 荧光黄背景 */
-    --bg-secondary: #d4e008;    /* 深黄色 */
-    --text-primary: #000000;    /* 黑色文字 */
-    --text-secondary: #1a1a1a;  /* 深灰色文字 */
-    --border-color: #000000;    /* 黑色边框 */
-    --accent-dark: #000000;     /* 黑色强调 */
-    --accent-yellow: #E8F51D;   /* 黄色强调 */
+    --bg-primary: #EBD9B4;      /* 米黄色背景 */
+    --bg-secondary: #F4E4C1;    /* 浅米黄色 */
+    --text-primary: #E85D3F;    /* 橙红色文字 */
+    --text-secondary: #D85D3F;  /* 深橙红色文字 */
+    --border-color: #E85D3F;    /* 橙红色边框 */
+    --accent-dark: #C04A2F;     /* 深橙色强调 */
+    --accent-light: #F4E4C1;    /* 浅色强调 */
 }
 
 * {

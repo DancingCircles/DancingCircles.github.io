@@ -6,7 +6,7 @@
     width: 100%;
     min-height: 100vh;
     height: 100vh;
-    background: #E8F51D;
+    background: #EBD9B4;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -21,17 +21,53 @@
     align-items: flex-start;
     width: 100%;
     z-index: 2;
+    position: relative;
 }
 
-.header-left,
-.header-right {
+.header-badge {
+    position: relative;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+.badge-text {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0;
+}
+
+.badge-text span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(0.6rem, 1vw, 0.85rem);
+    font-weight: 700;
+    color: #E85D3F;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 1.3;
+}
+
+.header-line {
+    height: 2px;
+    flex: 1;
+    background-color: #E85D3F;
+    min-width: 200px;
 }
 
 .header-right {
     text-align: right;
+}
+
+.header-right span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(0.6rem, 1vw, 0.85rem);
+    font-weight: 700;
+    color: #E85D3F;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    display: block;
 }
 
 /* Main Content */
@@ -39,19 +75,21 @@
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 2rem 0;
 }
 
 .giant-text {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3.5rem, 12vw, 14rem);
+    font-size: clamp(3.5rem, 16vw, 20rem);
     font-weight: 900;
-    color: #000000;
+    color: #E85D3F;
     margin: 0;
-    line-height: 0.9;
-    letter-spacing: -0.03em;
+    line-height: 0.8;
+    letter-spacing: -0.045em;
     text-transform: uppercase;
+    text-align: center;
+    font-stretch: 100%;
 }
 
 .giant-text .line {
@@ -59,10 +97,7 @@
 }
 
 .giant-text .highlight {
-    color: #E8F51D;
-    -webkit-text-stroke: 3px #000000;
-    text-stroke: 3px #000000;
-    paint-order: stroke fill;
+    color: #E85D3F;
 }
 
 /* Footer Bottom */
@@ -74,91 +109,57 @@
     z-index: 2;
 }
 
-.footer-left,
-.footer-center,
-.footer-right {
-    flex: 1;
+.footer-left {
+    flex: 0 0 auto;
+}
+
+.footer-left span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(0.6rem, 1vw, 0.85rem);
+    font-weight: 700;
+    color: #E85D3F;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    display: block;
 }
 
 .footer-center {
+    flex: 1;
     text-align: center;
 }
 
+.footer-center span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(0.6rem, 1vw, 0.85rem);
+    font-weight: 700;
+    color: #E85D3F;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    display: block;
+}
+
 .footer-right {
+    flex: 0 0 auto;
     text-align: right;
 }
 
-/* Small Text */
-.small-text {
+.footer-right span {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(0.65rem, 1.2vw, 0.9rem);
+    font-size: clamp(0.6rem, 1vw, 0.85rem);
     font-weight: 700;
-    color: #000000;
+    color: #E85D3F;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: block;
-    line-height: 1.4;
-}
-
-/* Scroll Down Button - Right Bottom */
-.scroll-down-btn {
-    position: absolute;
-    bottom: clamp(1.5rem, 3vw, 3rem);
-    right: clamp(1.5rem, 3vw, 3rem);
-    display: inline-flex;
-    align-items: center;
-    gap: clamp(0.4rem, 1vw, 0.8rem);
-    background: #000000;
-    color: #E8F51D;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(0.75rem, 1.5vw, 1.2rem);
-    font-weight: 800;
-    padding: clamp(0.6rem, 1.2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
-    border: none;
-    border-radius: 50px;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-}
-
-.scroll-down-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    background: #1a1a1a;
-}
-
-.scroll-down-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.arrow-icon {
-    width: clamp(1rem, 2vw, 1.5rem);
-    height: clamp(1rem, 2vw, 1.5rem);
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(5px);
-    }
+    line-height: 1.4;
+    display: block;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
     .giant-text {
-        font-size: clamp(3rem, 10vw, 10rem);
-    }
-    
-    .giant-text .highlight {
-        -webkit-text-stroke: 2px #000000;
-        text-stroke: 2px #000000;
+        font-size: clamp(3rem, 12vw, 10rem);
     }
 }
 
@@ -169,41 +170,33 @@
         height: 100svh;
     }
     
-    .hero-header,
-    .hero-footer {
-        flex-direction: column;
-        gap: 0.5rem;
+    .badge-text span,
+    .footer-left span,
+    .footer-center span,
+    .footer-right span {
+        font-size: clamp(0.5rem, 1.5vw, 0.7rem);
     }
     
-    .header-right,
-    .footer-center,
-    .footer-right {
-        text-align: left;
+    .header-line {
+        min-width: 100px;
     }
     
     .giant-text {
-        font-size: clamp(2.5rem, 9vw, 6rem);
+        font-size: clamp(2.5rem, 11vw, 6rem);
     }
     
-    .giant-text .highlight {
-        -webkit-text-stroke: 1.5px #000000;
-        text-stroke: 1.5px #000000;
+    .hero-footer {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
     }
     
-    .small-text {
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    .footer-center {
+        text-align: left;
     }
     
-    .scroll-down-btn {
-        bottom: 1.5rem;
-        right: 1.5rem;
-        font-size: 0.7rem;
-        padding: 0.5rem 1.2rem;
-    }
-    
-    .arrow-icon {
-        width: 0.9rem;
-        height: 0.9rem;
+    .footer-right {
+        text-align: left;
     }
 }
 
@@ -212,20 +205,18 @@
         padding: 1rem;
     }
     
+    .badge-text span,
+    .footer-left span,
+    .footer-center span,
+    .footer-right span {
+        font-size: clamp(0.45rem, 2vw, 0.65rem);
+    }
+    
+    .header-line {
+        min-width: 50px;
+    }
+    
     .giant-text {
-        font-size: clamp(2rem, 8vw, 4rem);
-    }
-    
-    .scroll-down-btn {
-        bottom: 1rem;
-        right: 1rem;
-        font-size: 0.65rem;
-        padding: 0.4rem 1rem;
-        gap: 0.3rem;
-    }
-    
-    .arrow-icon {
-        width: 0.8rem;
-        height: 0.8rem;
+        font-size: clamp(2rem, 10vw, 4rem);
     }
 }

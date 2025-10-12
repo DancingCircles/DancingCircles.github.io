@@ -17,22 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.ticker.lagSmoothing(0);
 
   // ============================================
-  // Scroll Down Button
-  // ============================================
-  const scrollDownBtn = document.getElementById("scrollDownBtn");
-  if (scrollDownBtn) {
-    scrollDownBtn.addEventListener("click", () => {
-      const nextSection = document.querySelector(".project-a1");
-      if (nextSection) {
-        lenis.scrollTo(nextSection, {
-          duration: 1.5,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-        });
-      }
-    });
-  }
-
-  // ============================================
   // Project A1: WonJYou Scroll Animation
   // ============================================
   
@@ -137,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const a2TextContainer3 = document.querySelector(".project-a2 .sticky-text-3 .text-container");
   const a2OutroTextBgColor = getComputedStyle(document.documentElement)
     .getPropertyValue("--bg-secondary")
-    .trim() || "#e3d7b9";
+    .trim() || "#F4E4C1";
 
   function setScaleYA2(element, scale) {
     if (!element) return;
@@ -251,10 +235,10 @@ document.addEventListener("DOMContentLoaded", () => {
           // 25%-50%: 背景渐隐
           const fadeProgress = (progress - 0.25) / 0.25;
           const opacity = 1 - fadeProgress;
-          a2TextContainer3.style.backgroundColor = `rgba(227, 215, 185, ${opacity})`;
+          a2TextContainer3.style.backgroundColor = `rgba(244, 228, 193, ${opacity})`;
         } else if (progress >= 0.5) {
           // 50%+: 背景完全透明
-          a2TextContainer3.style.backgroundColor = `rgba(227, 215, 185, 0)`;
+          a2TextContainer3.style.backgroundColor = `rgba(244, 228, 193, 0)`;
         }
       }
 
