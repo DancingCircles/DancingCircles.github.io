@@ -312,6 +312,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  console.log("✅ 所有三个项目的动画已初始化完成！");
+  // ============================================
+  // Final Page: Slide Cover Effect
+  // ============================================
+  
+  const slideCover = document.querySelector(".project-final .slide-cover");
+  const aboutSection = document.querySelector(".project-a3");
+  
+  if (slideCover && aboutSection) {
+    ScrollTrigger.create({
+      trigger: ".project-a3",
+      start: "top top",
+      end: () => `+=${window.innerHeight * 1.5}`,
+      pin: true,
+      pinSpacing: false,
+      scrub: 0.5,
+      onUpdate: (self) => {
+        // 从 100% 滑动到 0%
+        const translateY = 100 - (self.progress * 100);
+        slideCover.style.transform = `translateY(${translateY}%)`;
+      },
+    });
+  }
+
+  console.log("✅ 所有项目的动画已初始化完成！");
 });
 

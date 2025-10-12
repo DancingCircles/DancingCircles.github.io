@@ -1,0 +1,91 @@
+/* Final Page: Slide Cover Effect */
+.project-final {
+    position: relative;
+    background: transparent;
+    margin-top: -100vh;
+    padding-top: 100vh;
+}
+
+.project-final .slide-trigger {
+    height: 200vh;
+    background: transparent;
+    position: relative;
+    pointer-events: none;
+}
+
+.project-final .slide-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #E85D3F;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100%);
+    will-change: transform;
+    border-radius: 40px 40px 0 0;
+    overflow: hidden;
+}
+
+.project-final .cover-content {
+    text-align: center;
+    color: #EBD9B4;
+    padding: clamp(2rem, 5vh, 4rem);
+    max-width: 90%;
+}
+
+.project-final .final-title {
+    font-family: 'Oswald', Impact, sans-serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 800;
+    letter-spacing: 3px;
+    line-height: 0.9;
+    margin: 0 0 clamp(1rem, 3vh, 2rem) 0;
+}
+
+.project-final .final-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0 0 clamp(2rem, 4vh, 3rem) 0;
+    opacity: 0.9;
+}
+
+.project-final .final-cta {
+    margin-top: 0;
+}
+
+.project-final .cta-button {
+    display: inline-block;
+    padding: clamp(1rem, 2vh, 1.5rem) clamp(2rem, 4vw, 3rem);
+    background: #EBD9B4;
+    color: #E85D3F;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    letter-spacing: 1px;
+    border: 3px solid #EBD9B4;
+    transition: all 0.3s ease;
+}
+
+.project-final .cta-button:hover {
+    background: transparent;
+    color: #EBD9B4;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .project-final .slide-content h2 {
+        font-size: 3rem;
+    }
+    
+    .project-final .final-title {
+        font-size: 4rem;
+    }
+    
+    .project-final .cta-button {
+        padding: 1.2rem 2rem;
+    }
+}
+

@@ -8,9 +8,10 @@
 }
 
 .project-a3 .page {
-    display: grid;
-    grid-template-columns: 420px 1fr;
-    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    min-height: auto;
+    padding: clamp(2rem, 4vw, 4rem);
 }
 
 .project-a3 .left {
@@ -77,6 +78,10 @@
     display: inline-block;
 }
 
+.project-a3 .title span:first-child {
+    margin-right: 40px;
+}
+
 .project-a3 .faq {
     list-style: none;
     margin: 0;
@@ -133,6 +138,16 @@
 
 .project-a3 .faq-a p {
     margin: 0;
+}
+
+.project-a3 .faq-a a {
+    color: #E85D3F;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.project-a3 .faq-a a:hover {
+    opacity: 0.7;
 }
 
 @media (max-width: 1080px) {
