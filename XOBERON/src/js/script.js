@@ -17,6 +17,85 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.ticker.lagSmoothing(0);
 
   // ============================================
+  // Horizontal Marquee Effect
+  // ============================================
+  
+  const initMarquee = () => {
+    const marqueeTexts = [
+      'GOLANG',
+      'LEARNER',
+      'BACKEND',
+      'FRONTEND',
+      'DESIGNER',
+      'COLLEGE',
+      'STUDENT',
+      'CREATIVE',
+      'CODER'
+    ];
+
+    const container = document.getElementById('marquee-footer');
+    const track = document.getElementById('marquee-track');
+
+    if (!container || !track) return;
+
+    // 创建足够多的重复文本以确保无缝循环
+    const repetitions = 4; // 增加重复次数确保屏幕始终有文字
+    let allItems = [];
+
+    for (let i = 0; i < repetitions; i++) {
+      marqueeTexts.forEach(text => {
+        const span = document.createElement('span');
+        span.className = 'marquee-item';
+        span.textContent = text;
+        track.appendChild(span);
+        allItems.push(span);
+      });
+    }
+
+    let position = 0;
+    const speed = 1; // 像素/帧，从左到右
+
+    // 获取单组文字的宽度
+    const getSingleSetWidth = () => {
+      // 计算一组文字的总宽度
+      let width = 0;
+      for (let i = 0; i < marqueeTexts.length; i++) {
+        if (allItems[i]) {
+          width += allItems[i].offsetWidth;
+        }
+      }
+      return width;
+    };
+
+    // 延迟获取宽度，确保元素已渲染
+    setTimeout(() => {
+      const singleSetWidth = getSingleSetWidth();
+      
+      // 从负位置开始，让文字从右侧进入
+      position = -singleSetWidth;
+
+      // 动画循环
+      const animate = () => {
+        position += speed;
+
+        // 当移动到0时，重置到起始位置实现无缝循环
+        if (position >= 0) {
+          position = -singleSetWidth;
+        }
+
+        track.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(animate);
+      };
+
+      // 启动动画
+      animate();
+    }, 100);
+  };
+
+  // 初始化 Marquee
+  initMarquee();
+
+  // ============================================
   // Project A1: WonJYou Scroll Animation
   // ============================================
   

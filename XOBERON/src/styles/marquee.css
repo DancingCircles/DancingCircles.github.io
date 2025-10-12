@@ -1,0 +1,95 @@
+/* Horizontal Marquee Scrolling Text */
+
+.marquee-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+    padding: clamp(1.2rem, 2vw, 1.8rem) 0;
+    background: transparent;
+}
+
+.marquee-track {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.marquee-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    font-weight: 700;
+    color: #E85D3F;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0 1.5em;
+}
+
+.marquee-item::before {
+    content: '✦';
+    margin-right: 1.5em;
+    opacity: 0.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+    .marquee-footer {
+        padding: clamp(1rem, 1.8vw, 1.5rem) 0;
+    }
+    
+    .marquee-item {
+        font-size: clamp(0.7rem, 0.95vw, 0.85rem);
+        padding: 0 1.2em;
+    }
+    
+    .marquee-item::before {
+        margin-right: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .marquee-footer {
+        padding: clamp(0.8rem, 1.5vw, 1.2rem) 0;
+    }
+    
+    .marquee-item {
+        font-size: clamp(0.65rem, 0.9vw, 0.75rem);
+        letter-spacing: 0.12em;
+        padding: 0 1em;
+    }
+    
+    .marquee-item::before {
+        margin-right: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-footer {
+        padding: clamp(0.6rem, 1.2vw, 1rem) 0;
+    }
+    
+    .marquee-item {
+        font-size: clamp(0.6rem, 0.85vw, 0.7rem);
+        letter-spacing: 0.1em;
+        padding: 0 0.8em;
+    }
+    
+    .marquee-item::before {
+        margin-right: 0.8em;
+    }
+}
+
+/* 性能优化 */
+.marquee-track {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
