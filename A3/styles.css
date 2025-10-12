@@ -1,0 +1,180 @@
+* {
+	box-sizing: border-box
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+	background: #efe6cf;
+	color: #1c140f
+}
+
+.page {
+	display: grid;
+	grid-template-columns: 420px 1fr;
+	min-height: 100vh
+}
+
+.left {
+	padding: 24px
+}
+
+.image-wrap {
+	background: #e3d7b9;
+	border-radius: 2px;
+	overflow: hidden
+}
+
+.image-wrap img {
+	display: block;
+	width: 100%;
+	height: auto
+}
+
+.left-copy {
+	margin-top: 16px
+}
+
+.left-copy .lead {
+	font-size: 14px;
+	line-height: 1.5;
+	margin: 0 0 12px 0
+}
+
+.chat-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: #1c140f;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px 14px;
+	border-radius: 4px;
+	font-weight: 600;
+	font-size: 12px
+}
+
+.chat-btn:before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: url('https://images.unsplash.com/profile-1603579310794-90d6a6b6c0dcimage?auto=format&fit=crop&w=32&h=32&q=60') center/cover no-repeat
+}
+
+.right {
+	padding: 32px 32px 80px 32px
+}
+
+.title {
+	font-family: Oswald, Impact, system-ui, sans-serif;
+	font-weight: 800;
+	letter-spacing: 1px;
+	margin: 0 0 24px 0;
+	font-size: 140px;
+	line-height: 0.85
+}
+
+.title span {
+	display: inline-block
+}
+
+.faq {
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+
+.faq-item {
+	border-top: 2px solid #2c2018
+}
+
+.faq-item:last-child {
+	border-bottom: 2px solid #2c2018
+}
+
+.faq-q {
+	width: 100%;
+	text-align: left;
+	background: transparent;
+	border: 0;
+	padding: 18px 40px 18px 0;
+	font-size: 18px;
+	line-height: 1.25;
+	color: #1c140f;
+	position: relative;
+	cursor: pointer
+}
+
+.faq-q:after {
+	content: "+";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	font-weight: 700;
+	font-size: 22px
+}
+
+.faq-item.open .faq-q:after {
+	content: "–"
+}
+
+.faq-a {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height .3s ease;
+	padding: 0 0 0 0;
+	color: #3b2c21
+}
+
+.faq-item.open .faq-a {
+	padding: 0 0 18px 0
+}
+
+.faq-a p {
+	margin: 0
+}
+
+@media (max-width: 1080px) {
+	.page {
+		grid-template-columns: 360px 1fr
+	}
+
+	.title {
+		font-size: 110px
+	}
+}
+
+@media (max-width: 880px) {
+	.page {
+		grid-template-columns: 1fr
+	}
+
+	.left {
+		order: 2
+	}
+
+	.right {
+		order: 1
+	}
+
+	.title {
+		font-size: 84px
+	}
+}
+
+@media (max-width: 520px) {
+	.title {
+		font-size: 56px
+	}
+
+	.faq-q {
+		font-size: 16px
+	}
+}

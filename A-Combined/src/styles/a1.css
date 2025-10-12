@@ -1,0 +1,108 @@
+/* Project A1: WonJYou Scroll Animation */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+.project-a1 {
+    font-family: "Manrope", sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.project-a1 h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -0.15rem;
+    line-height: 1.125;
+    text-align: center;
+}
+
+.project-a1 .hero,
+.project-a1 .outro,
+.project-a1 .about {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.project-a1 .hero-img,
+.project-a1 .outro-img {
+    width: 300px;
+    aspect-ratio: 5 / 7;
+    overflow: hidden;
+}
+
+.project-a1 .services {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.project-a1 .services-header {
+    position: relative;
+    width: 100%;
+    padding: 0 2rem;
+    will-change: transform;
+}
+
+.project-a1 .services-header img {
+    object-fit: contain;
+}
+
+.project-a1 .services-header:nth-child(1),
+.project-a1 .services-header:nth-child(3) {
+    transform: translateX(100%) translateY(0%);
+}
+
+.project-a1 .services-header:nth-child(2) {
+    transform: translateX(-100%) translateY(0%);
+    z-index: 2;
+}
+
+.project-a1 .services-copy {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    margin-top: 155svh;
+    padding: 2rem 2rem 25svh 2rem;
+    text-align: center;
+}
+
+.project-a1 .animate-text {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    color: var(--bg-secondary);
+    --clip-value: 100%;
+}
+
+.project-a1 .animate-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--text-primary);
+    clip-path: inset(0 0 var(--clip-value) 0);
+    will-change: clip-path;
+}
+
+@media (max-width: 1000px) {
+    .project-a1 h1 {
+        font-size: 2rem;
+        letter-spacing: -0.05rem;
+    }
+
+    .project-a1 .animate-text {
+        width: 100%;
+    }
+}
+
+

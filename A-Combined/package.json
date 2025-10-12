@@ -1,0 +1,23 @@
+{
+  "name": "a-combined",
+  "version": "1.0.0",
+  "description": "Combined scroll animation projects",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.0.42"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.4",
+    "vite": "^5.0.0"
+  }
+}
+
+
+

@@ -1,0 +1,123 @@
+/* Project A2: Phive Text Scroll Animation */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+.project-a2 {
+    /* 采用 A3 的颜色方案 */
+    --dark: #1c140f;  /* A3 深棕色 */
+    --light: #efe6cf; /* A3 米色 */
+    font-family: "Roboto Condensed", sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.project-a2 h1 {
+    text-transform: uppercase;
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 0.85;
+    text-align: center;
+}
+
+.project-a2 section {
+    position: relative;
+    width: 100vw;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.project-a2 .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.project-a2 .hero h1 {
+    width: 50%;
+}
+
+.project-a2 .sticky-text-1,
+.project-a2 .sticky-text-2 {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.project-a2 .sticky-text-3 {
+    color: var(--text-primary);
+    position: relative;
+    z-index: 0;
+    background-color: var(--bg-primary);
+}
+
+.project-a2 .sticky-text-3 .text-container {
+    background-color: #e3d7b9; /* A3 浅米色背景，用于渐隐动画 */
+}
+
+.project-a2 .text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: opacity, transform;
+    z-index: 2;
+}
+
+.project-a2 .bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: opacity, transform;
+    z-index: -1;
+}
+
+.project-a2 .text-container h1 {
+    position: relative;
+    left: -0.035em;
+    letter-spacing: -0.05em;
+    transform-origin: 50% 0%;
+    /* Use Y-only scale so GSAP's scaleY animation isn't canceled by scaleX=0 */
+    transform: scaleY(0);
+}
+
+.project-a2 .sticky-text-1 .text-container h1 {
+    font-size: 23vw;
+    font-weight: 300;
+    will-change: transform;
+}
+
+.project-a2 .sticky-text-2 .text-container h1 {
+    font-size: 35vw;
+    will-change: transform;
+}
+
+.project-a2 .sticky-text-3 .text-container h1 {
+    font-size: 27vw;
+    font-weight: 900;
+}
+
+.project-a2 .header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    z-index: 3;
+    opacity: 0;
+}
+
+@media (max-width: 1000px) {
+    .project-a2 h1 {
+        font-size: 3rem;
+    }
+
+    .project-a2 .hero h1,
+    .project-a2 .header {
+        width: calc(100% - 4rem);
+    }
+}
+

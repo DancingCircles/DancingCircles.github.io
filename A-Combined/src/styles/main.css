@@ -1,0 +1,41 @@
+/* Global Reset and Base Styles */
+/* 统一采用黄黑配色 */
+:root {
+    --bg-primary: #E8F51D;      /* 荧光黄背景 */
+    --bg-secondary: #d4e008;    /* 深黄色 */
+    --text-primary: #000000;    /* 黑色文字 */
+    --text-secondary: #1a1a1a;  /* 深灰色文字 */
+    --border-color: #000000;    /* 黑色边框 */
+    --accent-dark: #000000;     /* 黑色强调 */
+    --accent-yellow: #E8F51D;   /* 黄色强调 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Remove default styles that might conflict */
+section {
+    position: relative;
+}
+
+

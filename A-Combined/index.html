@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Scroll Animations</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="stylesheet" href="./src/styles/brand-hero.css" />
+    <link rel="stylesheet" href="./src/styles/a1.css" />
+    <link rel="stylesheet" href="./src/styles/a2.css" />
+    <link rel="stylesheet" href="./src/styles/a3.css" />
+</head>
+<body>
+    <!-- Brand Hero Section -->
+    <section class="brand-hero" id="hero">
+        <div class="hero-header">
+            <div class="header-left">
+                <span class="small-text">VISUAL LANGUAGE.</span>
+            </div>
+            <div class="header-right">
+                <span class="small-text">NEUE ALTE</span>
+                <span class="small-text">GROTESK FAMILY</span>
+            </div>
+        </div>
+        
+        <div class="hero-main">
+            <h1 class="giant-text">
+                <span class="line">BOLD AND</span>
+                <span class="line">ATTENTION</span>
+                <span class="line highlight">GRABBING.</span>
+            </h1>
+        </div>
+        
+        <div class="hero-footer">
+            <div class="footer-left">
+                <span class="small-text">THE GROTESK.</span>
+            </div>
+            <div class="footer-center">
+                <span class="small-text">XOBERON – The Future of Grotesk</span>
+            </div>
+            <div class="footer-right">
+            </div>
+        </div>
+        
+        <button class="scroll-down-btn" id="scrollDownBtn">
+            <span>SCROLL DOWN</span>
+            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Project A1: WonJYou Scroll Animation -->
+    <div class="project-a1" data-project="a1">
+        <section class="about">
+            <h1 class="animate-text" data-text="A space for work shaped with clarity and intention. Each project follows a simple path from thought to form, from form to function.">
+                A space for work shaped with clarity and intention. Each project follows<br />
+                a simple path from thought to form, from form to function.
+            </h1>
+        </section>
+
+        <section class="services">
+            <div class="services-header"><img src="/whoami.svg" alt="Who Am I" /></div>
+            <div class="services-header"><img src="/whoami.svg" alt="Who Am I" /></div>
+            <div class="services-header"><img src="/whoami.svg" alt="Who Am I" /></div>
+        </section>
+
+        <section class="services-copy">
+            <h1 class="animate-text" data-text="I create websites and digital experiences that value clarity above excess. Through minimal form and precise detail, I aim to build work that lasts and offers a quiet sense of order.">
+                I create websites and digital experiences that value clarity above<br />
+                excess. Through minimal form and precise detail, I aim to build work<br />
+                that lasts and offers a quiet sense of order.
+            </h1>
+        </section>
+    </div>
+
+    <!-- Project A2: Phive Text Scroll Animation -->
+    <div class="project-a2" data-project="a2">
+        <section class="hero">
+            <h1>This space intentionally loud</h1>
+        </section>
+
+        <section class="sticky-text-1">
+            <div class="text-container">
+                <h1>Overdrive</h1>
+            </div>
+        </section>
+
+        <section class="sticky-text-2">
+            <div class="text-container">
+                <h1>Static</h1>
+            </div>
+        </section>
+
+        <section class="sticky-text-3">
+            <div class="bg-img">
+                <img src="/img.png" alt="Background" />
+            </div>
+            <div class="text-container">
+                <h1>Friction</h1>
+            </div>
+            <div class="header">
+                <h1>Overdrive always breaks the system</h1>
+            </div>
+        </section>
+    </div>
+
+    <!-- Project A3: FAQ Page -->
+    <div class="project-a3" data-project="a3">
+        <div class="page">
+            <aside class="left">
+                <div class="image-wrap">
+                    <img src="https://images.unsplash.com/photo-1581349437898-5fde6d1e9c77?q=80&w=1200&auto=format&fit=crop" alt="WorkDOC" />
+                </div>
+                <div class="left-copy">
+                    <p class="lead">Still got unanswered<br>questions? Or still wondering<br>if a mural is right for you?</p>
+                    <a class="chat-btn" href="#">CHAT WITH US</a>
+                </div>
+            </aside>
+            <main class="right">
+                <h1 class="title"><span>FREQUENTLY</span><br><span>ASKED QUESTIONS</span></h1>
+                <ul class="faq">
+                    <li class="faq-item">
+                        <button class="faq-q">How do I share my ideas with a custom project?</button>
+                        <div class="faq-a">We collaborate through a short kickoff call and moodboards.</div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Can I collaborate with Mammoth<br>Murals on a unique project?</button>
+                        <div class="faq-a">Yes, we love unique projects and partnerships.</div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Do you require a deposit for your services?</button>
+                        <div class="faq-a">A 30% deposit is typical to secure scheduling.</div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">Are your signs, murals, and ghost signs water resistant?</button>
+                        <div class="faq-a">Outdoor finishes are sealed and weather resistant.</div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">What size options are available?</button>
+                        <div class="faq-a">From small signage to large-format murals.</div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">How long does it take to create a<br>custom sign, mural, or ghost sign?</button>
+                        <div class="faq-a">Most projects complete in 2–6 weeks depending on scope.</div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">What kind of paint do you use?</button>
+                        <div class="faq-a">We use archival, UV-resistant paints and clear coats.</div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">How can I contact Mammoth<br>Murals for inquiries or quotes?</button>
+                        <div class="faq-a">Reach out via email or the chat button on the left.</div>
+                    </li>
+                    <li class="faq-item">
+                        <button class="faq-q">What areas do you serve?</button>
+                        <div class="faq-a">We serve nationwide with select international work.</div>
+                    </li>
+                </ul>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="./src/js/script.js"></script>
+</body>
+</html>
+

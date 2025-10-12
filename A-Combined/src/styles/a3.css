@@ -1,0 +1,177 @@
+/* Project A3: FAQ Page */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@600;700;800&display=swap');
+
+.project-a3 {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: #efe6cf;
+    color: #1c140f;
+}
+
+.project-a3 .page {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    min-height: 100vh;
+}
+
+.project-a3 .left {
+    padding: 24px;
+}
+
+.project-a3 .image-wrap {
+    background: #e3d7b9;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.project-a3 .image-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project-a3 .left-copy {
+    margin-top: 16px;
+}
+
+.project-a3 .left-copy .lead {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+}
+
+.project-a3 .chat-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1c140f;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.project-a3 .chat-btn:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: url('https://images.unsplash.com/profile-1603579310794-90d6a6b6c0dcimage?auto=format&fit=crop&w=32&h=32&q=60') center/cover no-repeat;
+}
+
+.project-a3 .right {
+    padding: 32px 32px 80px 32px;
+}
+
+.project-a3 .title {
+    font-family: Oswald, Impact, system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0 0 24px 0;
+    font-size: 140px;
+    line-height: 0.85;
+}
+
+.project-a3 .title span {
+    display: inline-block;
+}
+
+.project-a3 .faq {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.project-a3 .faq-item {
+    border-top: 2px solid #2c2018;
+}
+
+.project-a3 .faq-item:last-child {
+    border-bottom: 2px solid #2c2018;
+}
+
+.project-a3 .faq-q {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    padding: 18px 40px 18px 0;
+    font-size: 18px;
+    line-height: 1.25;
+    color: #1c140f;
+    position: relative;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.project-a3 .faq-q:after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.project-a3 .faq-item.open .faq-q:after {
+    content: "–";
+}
+
+.project-a3 .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    padding: 0 0 0 0;
+    color: #3b2c21;
+}
+
+.project-a3 .faq-item.open .faq-a {
+    padding: 0 0 18px 0;
+}
+
+.project-a3 .faq-a p {
+    margin: 0;
+}
+
+@media (max-width: 1080px) {
+    .project-a3 .page {
+        grid-template-columns: 360px 1fr;
+    }
+
+    .project-a3 .title {
+        font-size: 110px;
+    }
+}
+
+@media (max-width: 880px) {
+    .project-a3 .page {
+        grid-template-columns: 1fr;
+    }
+
+    .project-a3 .left {
+        order: 2;
+    }
+
+    .project-a3 .right {
+        order: 1;
+    }
+
+    .project-a3 .title {
+        font-size: 84px;
+    }
+}
+
+@media (max-width: 520px) {
+    .project-a3 .title {
+        font-size: 56px;
+    }
+
+    .project-a3 .faq-q {
+        font-size: 16px;
+    }
+}
+
+
+

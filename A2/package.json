@@ -1,0 +1,21 @@
+{
+  "name": "phive-text-scroll-animation",
+  "version": "1.0.0",
+  "description": "Text scroll animation with GSAP",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=8000 --entry-file=index.html",
+    "dev": "live-server --port=8000 --entry-file=index.html"
+  },
+  "keywords": [
+    "animation",
+    "scroll",
+    "gsap"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
+
