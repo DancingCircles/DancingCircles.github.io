@@ -40,24 +40,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // A1: 文字渐显动画 - .services-copy section
-  document.querySelectorAll(".project-a1 .copy-text").forEach((textElement) => {
-    // 创建覆盖层，直接克隆内容
-    const overlay = document.createElement('div');
-    overlay.className = 'copy-overlay';
-    overlay.innerHTML = textElement.innerHTML;
-    textElement.appendChild(overlay);
-
-    ScrollTrigger.create({
-      trigger: textElement,
-      start: "top 50%",
-      end: "bottom 50%",
-      scrub: 1,
-      onUpdate: (self) => {
-        const clipValue = Math.max(0, 100 - self.progress * 100);
-        overlay.style.setProperty('--clip-value', `${clipValue}%`);
-      },
-    });
+  // A1: services-copy section 渐入动画
+  ScrollTrigger.create({
+    trigger: ".project-a1 .services-copy",
+    start: "top 80%",
+    end: "top 20%",
+    scrub: 1,
+    onUpdate: (self) => {
+      const section = document.querySelector(".project-a1 .services-copy");
+      if (section) {
+        section.style.opacity = self.progress;
+      }
+    },
   });
 
   // A1: WHOAMI 动画 - 滑入
