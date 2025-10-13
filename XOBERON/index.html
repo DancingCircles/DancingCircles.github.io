@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Black+Ops+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="stylesheet" href="./src/styles/cursor.css" />
+    <link rel="stylesheet" href="./src/styles/waves-hero.css" />
     <link rel="stylesheet" href="./src/styles/brand-hero.css" />
     <link rel="stylesheet" href="./src/styles/marquee.css" />
     <link rel="stylesheet" href="./src/styles/about.css" />
@@ -17,31 +19,25 @@
     <link rel="stylesheet" href="./src/styles/final.css" />
 </head>
 <body>
-    <!-- Brand Hero Section -->
-    <section class="brand-hero" id="hero">
-        <div class="hero-header">
-            <div class="header-badge">
-                <div class="badge-text">
-                    <span>INTRODUCING</span>
-                </div>
-                <div class="header-line"></div>
-            </div>
+    <!-- Waves Hero Section -->
+    <section class="waves-hero">
+        <div class="waves-hero-top">
+            <div id="waves-container"></div>
         </div>
-        
-        <div class="hero-main">
+        <div class="waves-hero-bottom">
             <h1 class="giant-text">
-                <span class="line">X OBERO<span class="letter-with-petal">N<span class="rotating-petal"></span></span></span>
+                <span class="line">X OBERON</span>
             </h1>
-        </div>
-        
-        <!-- Marquee Footer -->
-        <div class="marquee-footer" id="marquee-footer">
-            <div class="marquee-track" id="marquee-track"></div>
         </div>
     </section>
 
     <!-- Project A1: WonJYou Scroll Animation -->
     <div class="project-a1" data-project="a1">
+        <!-- Marquee Footer -->
+        <div class="marquee-footer" id="marquee-footer">
+            <div class="marquee-track" id="marquee-track"></div>
+        </div>
+
         <section class="about">
             <h1 class="animate-text">
                 THE ARCTIC OCEAN<br />
@@ -82,15 +78,15 @@
     <div class="project-a2" data-project="a2">
         <section class="hero">
             <div class="quote-container">
-                <h1 class="main-quote">
-                    I <span class="highlight-word">never</span> dreamed<br />
-                    about success.<br />
-                    I worked <span class="arrow-decoration">→</span> for it.
-                </h1>
+                <div id="quote-rotating-container"></div>
             </div>
             <div class="bottom-bar">
-                <div class="divider-line"></div>
-                <div class="brand-name">keep scrolling</div>
+                <svg class="wave-line" viewBox="0 0 1200 20" preserveAspectRatio="none">
+                    <path d="M0,10 Q150,0 300,10 T600,10 T900,10 T1200,10" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+                <svg class="wave-line" viewBox="0 0 1200 20" preserveAspectRatio="none">
+                    <path d="M0,10 Q150,0 300,10 T600,10 T900,10 T1200,10" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
             </div>
         </section>
 
@@ -121,31 +117,31 @@
                 <ul class="faq">
                     <li class="faq-item">
                         <button class="faq-q">How can I contact you?</button>
-                        <div class="faq-a">You can reach me at <a href="mailto:xoberon@fomail.com">xoberon@fomail.com</a></div>
+                        <div class="faq-a"><div>You can reach me at <a href="mailto:xoberon@fomail.com">xoberon@fomail.com</a></div></div>
                     </li>
                     <li class="faq-item">
                         <button class="faq-q">What technologies do you specialize in?</button>
-                        <div class="faq-a">I specialize in Golang backend development and have a passion for frontend design. I bridge the gap between robust system architecture and beautiful user interfaces.</div>
+                        <div class="faq-a"><div>I specialize in Golang backend development and have a passion for frontend design. I bridge the gap between robust system architecture and beautiful user interfaces.</div></div>
                     </li>
                     <li class="faq-item">
                         <button class="faq-q">What technologies were used in this project?</button>
-                        <div class="faq-a">This project is built with HTML5, CSS3 (with CSS custom properties and animations), JavaScript, GSAP ScrollTrigger for smooth scroll animations, and Vite as the build tool. The design emphasizes minimal aesthetics and performance.</div>
+                        <div class="faq-a"><div>This project is built with HTML5, CSS3 (with CSS custom properties and animations), JavaScript, GSAP ScrollTrigger for smooth scroll animations, and Vite as the build tool. The design emphasizes minimal aesthetics and performance.</div></div>
                     </li>
                     <li class="faq-item">
                         <button class="faq-q">What AI tools assisted in this project?</button>
-                        <div class="faq-a">This project was developed with the collaboration of Cursor AI and ChatGPT. Cursor provided intelligent code completion and refactoring, while ChatGPT helped with design decisions and problem-solving. The synergy between these tools and human creativity made the development process more efficient.</div>
+                        <div class="faq-a"><div>This project was developed with the collaboration of Cursor AI and ChatGPT. Cursor provided intelligent code completion and refactoring, while ChatGPT helped with design decisions and problem-solving. The synergy between these tools and human creativity made the development process more efficient.</div></div>
                     </li>
                     <li class="faq-item">
                         <button class="faq-q">What services do you offer?</button>
-                        <div class="faq-a">I create websites and digital experiences that value clarity above excess. Through minimal form and precise detail, I build work that combines elegant code with intuitive design.</div>
+                        <div class="faq-a"><div>I create websites and digital experiences that value clarity above excess. Through minimal form and precise detail, I build work that combines elegant code with intuitive design.</div></div>
                     </li>
                     <li class="faq-item">
                         <button class="faq-q">What is your design philosophy?</button>
-                        <div class="faq-a">I believe in clarity over complexity, function over decoration. Every design decision should serve a purpose, and every line of code should be intentional.</div>
+                        <div class="faq-a"><div>I believe in clarity over complexity, function over decoration. Every design decision should serve a purpose, and every line of code should be intentional.</div></div>
                     </li>
                     <li class="faq-item">
                         <button class="faq-q">What are you currently working on?</button>
-                        <div class="faq-a">As a college student, I'm continuously learning and growing. I'm building robust backend systems while crafting intuitive interfaces that users love.</div>
+                        <div class="faq-a"><div>As a college student, I'm continuously learning and growing. I'm building robust backend systems while crafting intuitive interfaces that users love.</div></div>
                     </li>
                 </ul>
             </main>
@@ -157,11 +153,35 @@
         <section class="slide-trigger"></section>
         
         <section class="slide-cover">
-            <div class="cover-content">
-                <h1 class="final-title">THANKS FOR<br>VISITING</h1>
-                <p class="final-subtitle">Let's build something amazing together</p>
-                <div class="final-cta">
-                    <a href="mailto:xoberon@fomail.com" class="cta-button">GET IN TOUCH</a>
+            <div class="final-top-bar">
+                <div class="final-left-info">
+                    <p class="final-meta">X OBERON</p>
+                    <p class="final-meta">Portfolio</p>
+                </div>
+            </div>
+            
+            <div class="final-main-content">
+                <h1 class="final-huge-title">THE<br>END.</h1>
+                
+                <div class="final-side-title">
+                    <p>NOTHING</p>
+                    <p>LASTS</p>
+                    <p>FOREVER</p>
+                </div>
+            </div>
+            
+            <div class="final-bottom-info">
+                <div class="final-bottom-left">
+                    <p>© 2025 X OBERON Portfolio.</p>
+                    <p>All rights reserved.</p>
+                </div>
+                <div class="final-bottom-center">
+                    <p>THE CELEBRATION OF THE END.</p>
+                    <p>WELCOME TO THE FUTURE.</p>
+                    <p>WE'LL BE BACK SOON.</p>
+                </div>
+                <div class="final-bottom-right">
+                    <a href="mailto:xoberon@fomail.com" class="final-contact-link">GET IN TOUCH</a>
                 </div>
             </div>
         </section>

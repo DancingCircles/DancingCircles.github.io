@@ -1,13 +1,12 @@
 /* Horizontal Marquee Scrolling Text */
 
 .marquee-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     overflow: hidden;
     z-index: 2;
     padding: clamp(1.2rem, 2vw, 1.8rem) 0;
+    margin-top: clamp(3rem, 5vw, 5rem);
     background: transparent;
 }
 
@@ -24,7 +23,7 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(0.75rem, 1vw, 0.9rem);
     font-weight: 700;
-    color: #E85D3F;
+    color: #FF3347;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     display: inline-block;
@@ -92,5 +91,6 @@
     backface-visibility: hidden;
     transform: translateZ(0);
 }
+
 
 

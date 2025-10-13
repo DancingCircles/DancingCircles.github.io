@@ -5,6 +5,8 @@
     font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     background: #EBD9B4;
     color: #E85D3F;
+    position: relative;
+    z-index: 1;
 }
 
 .project-a3 .page {
@@ -90,6 +92,11 @@
 
 .project-a3 .faq-item {
     border-top: 2px solid #E85D3F;
+    transition: all 0.3s ease;
+}
+
+.project-a3 .faq-item:hover {
+    background-color: rgba(232, 93, 63, 0.1) !important;
 }
 
 .project-a3 .faq-item:last-child {
@@ -104,36 +111,58 @@
     padding: 18px 40px 18px 0;
     font-size: 18px;
     line-height: 1.25;
-    color: #E85D3F;
+    color: #E85D3F !important;
     position: relative;
     cursor: pointer;
     font-family: inherit;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.project-a3 .faq-item:hover .faq-q {
+    color: #FFFFFF !important;
+    background-color: #E85D3F !important;
+    padding-left: 12px;
 }
 
 .project-a3 .faq-q:after {
     content: "+";
     position: absolute;
-    right: 0;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     font-weight: 700;
     font-size: 22px;
+    transition: transform 0.3s ease;
 }
 
-.project-a3 .faq-item.open .faq-q:after {
+.project-a3 .faq-item:hover .faq-q:after {
     content: "–";
+    transform: translateY(-50%) rotate(180deg);
 }
 
 .project-a3 .faq-a {
-    max-height: 0;
+    display: grid;
+    grid-template-rows: 0fr;
     overflow: hidden;
-    transition: max-height .3s ease;
-    padding: 0 0 0 0;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #D85D3F;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
-.project-a3 .faq-item.open .faq-a {
-    padding: 0 0 18px 0;
+.project-a3 .faq-a > div {
+    min-height: 0;
+    padding: 0 12px;
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-a3 .faq-item:hover .faq-a {
+    grid-template-rows: 1fr;
+}
+
+.project-a3 .faq-item:hover .faq-a > div {
+    padding: 12px 12px 24px 12px;
 }
 
 .project-a3 .faq-a p {

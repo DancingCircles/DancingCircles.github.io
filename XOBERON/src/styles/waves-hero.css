@@ -1,0 +1,74 @@
+/* 新的 Waves Hero 部分 */
+.waves-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 上部分 - Waves 动画区域 */
+.waves-hero-top {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background: var(--bg-secondary, #F4E4C1);
+  overflow: hidden;
+}
+
+/* 下部分 - X OBERON 文字区域 */
+.waves-hero-bottom {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary, #EBD9B4);
+  border-top: 4px solid var(--border-color, #E85D3F);
+  padding: 2rem;
+}
+
+.waves-hero-bottom .giant-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3.5rem, 16vw, 20rem);
+  font-weight: 900;
+  color: var(--text-primary, #E85D3F);
+  margin: 0;
+  line-height: 0.8;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.waves-hero-bottom .giant-text .line {
+  display: block;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .waves-hero-top {
+    height: 50vh;
+  }
+  
+  .waves-hero-bottom {
+    height: 50vh;
+    padding: 1.5rem;
+  }
+  
+  .waves-hero-bottom .giant-text {
+    font-size: clamp(3rem, 12vw, 10rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .waves-hero-bottom {
+    padding: 1rem;
+  }
+  
+  .waves-hero-bottom .giant-text {
+    font-size: clamp(2.5rem, 11vw, 6rem);
+  }
+}
+

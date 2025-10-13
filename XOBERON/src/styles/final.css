@@ -1,4 +1,6 @@
 /* Final Page: Slide Cover Effect */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&display=swap');
+
 .project-final {
     position: relative;
     background: transparent;
@@ -22,70 +24,160 @@
     background: #E85D3F;
     z-index: 10;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     transform: translateY(100%);
     will-change: transform;
     border-radius: 40px 40px 0 0;
     overflow: hidden;
+    pointer-events: none;
+    padding: clamp(2rem, 4vw, 4rem);
 }
 
-.project-final .cover-content {
-    text-align: center;
+.project-final .slide-cover.active {
+    pointer-events: auto;
+}
+
+/* 顶部信息栏 */
+.project-final .final-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.project-final .final-left-info {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    line-height: 1.4;
     color: #EBD9B4;
-    padding: clamp(2rem, 5vh, 4rem);
-    max-width: 90%;
+    font-weight: 400;
 }
 
-.project-final .final-title {
-    font-family: 'Oswald', Impact, sans-serif;
-    font-size: clamp(3rem, 10vw, 8rem);
-    font-weight: 800;
-    letter-spacing: 3px;
-    line-height: 0.9;
-    margin: 0 0 clamp(1rem, 3vh, 2rem) 0;
+.project-final .final-meta {
+    margin: 0 0 0.2em 0;
 }
 
-.project-final .final-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    margin: 0 0 clamp(2rem, 4vh, 3rem) 0;
-    opacity: 0.9;
+/* 主要内容区 */
+.project-final .final-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
 }
 
-.project-final .final-cta {
-    margin-top: 0;
+.project-final .final-huge-title {
+    font-family: 'Roboto Condensed', Impact, sans-serif;
+    font-size: clamp(8rem, 25vw, 28rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: #EBD9B4;
+    margin: 0;
+    text-transform: uppercase;
 }
 
-.project-final .cta-button {
+.project-final .final-side-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #EBD9B4;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.project-final .final-side-title p {
+    margin: 0 0 0.1em 0;
+}
+
+/* 底部信息栏 */
+.project-final .final-bottom-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+.project-final .final-bottom-left,
+.project-final .final-bottom-center,
+.project-final .final-bottom-right {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    line-height: 1.4;
+    color: #EBD9B4;
+}
+
+.project-final .final-bottom-left p,
+.project-final .final-bottom-center p {
+    margin: 0 0 0.2em 0;
+}
+
+.project-final .final-bottom-center {
+    font-weight: 700;
+}
+
+.project-final .final-contact-link {
     display: inline-block;
-    padding: clamp(1rem, 2vh, 1.5rem) clamp(2rem, 4vw, 3rem);
+    padding: clamp(0.6rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 2rem);
     background: #EBD9B4;
     color: #E85D3F;
     text-decoration: none;
-    font-weight: 600;
-    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-    letter-spacing: 1px;
-    border: 3px solid #EBD9B4;
+    font-weight: 700;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    letter-spacing: 0.05em;
     transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
-.project-final .cta-button:hover {
-    background: transparent;
+.project-final .final-contact-link:hover {
+    background: #000000;
     color: #EBD9B4;
     transform: scale(1.05);
 }
 
+@media (max-width: 1024px) {
+    .project-final .final-main-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    
+    .project-final .final-side-title {
+        text-align: left;
+    }
+    
+    .project-final .final-huge-title {
+        font-size: clamp(6rem, 20vw, 15rem);
+    }
+}
+
 @media (max-width: 768px) {
-    .project-final .slide-content h2 {
-        font-size: 3rem;
+    .project-final .slide-cover {
+        padding: clamp(1.5rem, 3vw, 2rem);
     }
     
-    .project-final .final-title {
-        font-size: 4rem;
+    .project-final .final-top-bar {
+        flex-direction: column;
+        gap: 1rem;
     }
     
-    .project-final .cta-button {
-        padding: 1.2rem 2rem;
+    
+    .project-final .final-huge-title {
+        font-size: clamp(4rem, 18vw, 10rem);
+    }
+    
+    .project-final .final-bottom-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    
+    .project-final .final-contact-link {
+        align-self: flex-start;
     }
 }
 

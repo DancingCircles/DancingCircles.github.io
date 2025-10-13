@@ -66,8 +66,9 @@
 
 .project-a1 .services-header img {
     object-fit: contain;
-    /* 将SVG颜色适配为深橙棕色，与主题色相近但更深 */
-    filter: brightness(0) saturate(100%) invert(46%) sepia(88%) saturate(1489%) hue-rotate(338deg) brightness(96%) contrast(93%);    opacity: 0.9;
+    /* 将SVG颜色适配为红色 #FF3347 */
+    filter: brightness(0) saturate(100%) invert(32%) sepia(93%) saturate(6445%) hue-rotate(344deg) brightness(102%) contrast(101%);
+    opacity: 1;
 }
 
 .project-a1 .services-header:nth-child(1),
@@ -83,7 +84,6 @@
 .project-a1 .services-copy {
     position: relative;
     width: 100%;
-    min-height: 100svh;
     margin-top: 155svh;
     padding: clamp(3rem, 5vw, 6rem);
     display: flex;

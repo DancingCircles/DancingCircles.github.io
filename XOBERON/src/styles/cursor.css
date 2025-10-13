@@ -1,0 +1,89 @@
+/* 自定义鼠标样式 - Windows 风格 + 主题色 */
+
+* {
+  cursor: none;
+}
+
+/* 主鼠标指针 - SVG箭头 */
+.custom-cursor {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out, opacity 0.15s ease-out;
+}
+
+.custom-cursor svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 隐藏鼠标跟随光晕 */
+.custom-cursor-dot {
+  display: none;
+}
+
+/* 悬停在可点击元素上时 */
+body.cursor-hover .custom-cursor {
+  transform: scale(1.3);
+}
+
+/* 点击时 */
+body.cursor-active .custom-cursor {
+  transform: scale(0.9);
+}
+
+/* 可点击元素恢复原生指针样式 */
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+.clickable {
+  cursor: pointer;
+}
+
+/* 禁用文本选择 - 主页和特定区域 */
+.waves-hero,
+.waves-hero *,
+.marquee-footer,
+.marquee-footer * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* 允许正常区域的文本选择 */
+.project-a1,
+.project-a2,
+.project-a3,
+.project-final {
+  user-select: auto;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+}
+
+/* 移动设备上恢复默认鼠标 */
+@media (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none;
+  }
+}
+
+/* 性能优化 */
+.custom-cursor,
+.custom-cursor-dot {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+

@@ -4,8 +4,17 @@ import Lenis from "lenis";
 
 // 导入 Three.js 初始化（会自动执行）
 import './initThree.jsx';
+// 导入 Quote 旋转文字初始化
+import './initQuote.jsx';
+// 导入 Waves 初始化
+import './initWaves.jsx';
+// 导入自定义鼠标
+import { initCustomCursor } from './customCursor.js';
 
 document.addEventListener("DOMContentLoaded", () => {
+  // 初始化自定义鼠标
+  initCustomCursor();
+  
   // 注册 GSAP 插件
   gsap.registerPlugin(ScrollTrigger);
 
@@ -362,37 +371,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ============================================
-  // Project A3: FAQ Accordion
+  // Project A3: FAQ - 使用纯CSS Hover效果
   // ============================================
-  
-  const faqItems = document.querySelectorAll(".project-a3 .faq-item");
-
-  faqItems.forEach((item) => {
-    const question = item.querySelector(".faq-q");
-    const answer = item.querySelector(".faq-a");
-
-    question.addEventListener("click", () => {
-      const isOpen = item.classList.contains("open");
-
-      // 关闭所有其他的 FAQ 项
-      faqItems.forEach((otherItem) => {
-        if (otherItem !== item) {
-          otherItem.classList.remove("open");
-          const otherAnswer = otherItem.querySelector(".faq-a");
-          otherAnswer.style.maxHeight = "0";
-        }
-      });
-
-      // 切换当前项
-      if (isOpen) {
-        item.classList.remove("open");
-        answer.style.maxHeight = "0";
-      } else {
-        item.classList.add("open");
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      }
-    });
-  });
+  // FAQ现在使用CSS :hover伪类，无需JavaScript
 
   // ============================================
   // Final Page: Slide Cover Effect
@@ -413,6 +394,13 @@ document.addEventListener("DOMContentLoaded", () => {
         // 从 100% 滑动到 0%
         const translateY = 100 - (self.progress * 100);
         slideCover.style.transform = `translateY(${translateY}%)`;
+        
+        // 只有当滑动覆盖层完全显示时才启用pointer-events
+        if (self.progress > 0.9) {
+          slideCover.classList.add('active');
+        } else {
+          slideCover.classList.remove('active');
+        }
       },
     });
   }
