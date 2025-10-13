@@ -120,8 +120,11 @@
     font-weight: 700;
 }
 
-.project-final .final-contact-link {
-    display: inline-block;
+.project-final .final-contact-link,
+.project-final .final-github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: clamp(0.6rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 2rem);
     background: #EBD9B4;
     color: #E85D3F;
@@ -131,12 +134,26 @@
     letter-spacing: 0.05em;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    border-radius: 25px;
 }
 
-.project-final .final-contact-link:hover {
+.project-final .final-contact-link:hover,
+.project-final .final-github-link:hover {
     background: #000000;
     color: #EBD9B4;
     transform: scale(1.05);
+}
+
+.project-final .final-github-link svg {
+    width: clamp(18px, 1.8vw, 22px);
+    height: clamp(18px, 1.8vw, 22px);
+}
+
+.project-final .final-bottom-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
 }
 
 @media (max-width: 1024px) {

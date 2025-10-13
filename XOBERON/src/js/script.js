@@ -10,10 +10,15 @@ import './initQuote.jsx';
 import './initWaves.jsx';
 // 导入自定义鼠标
 import { initCustomCursor } from './customCursor.js';
+// 导入导航栏
+import { initNavbar } from './navbar.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   // 初始化自定义鼠标
   initCustomCursor();
+  
+  // 初始化导航栏
+  initNavbar();
   
   // 注册 GSAP 插件
   gsap.registerPlugin(ScrollTrigger);
@@ -153,9 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
     scrub: 1,
     onUpdate: (self) => {
       const headers = document.querySelectorAll(".project-a1 .services-header");
-      gsap.set(headers[0], { x: `${100 - self.progress * 100}%` });
-      gsap.set(headers[1], { x: `-${100 - self.progress * 100}%` });
-      gsap.set(headers[2], { x: `${100 - self.progress * 100}%` });
+      // 滑入时就设置大尺寸 scale: 1.5
+      gsap.set(headers[0], { x: `${100 - self.progress * 100}%`, scale: 1.5 });
+      gsap.set(headers[1], { x: `-${100 - self.progress * 100}%`, scale: 1.5 });
+      gsap.set(headers[2], { x: `${100 - self.progress * 100}%`, scale: 1.5 });
     },
   });
 
@@ -174,16 +180,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const yProgress = self.progress / 0.5;
         gsap.set(headers[0], { y: `${yProgress * 100}%` });
         gsap.set(headers[2], { y: `${yProgress * -100}%` });
+        
+        // 前50%保持大尺寸（scale: 1.5）
+        headers.forEach((header) => gsap.set(header, { scale: 1.5 }));
       } else {
         gsap.set(headers[0], { y: "100%" });
         gsap.set(headers[2], { y: "-100%" });
+        
+        // 后50%从1.5缩放到最小尺寸
+        const scaleProgress = (self.progress - 0.5) / 0.5;
+        const minScale = window.innerWidth < 1000 ? 0.6 : 0.5;
+        const scale = 1.5 - scaleProgress * (1.5 - minScale);
+        
+        headers.forEach((header) => gsap.set(header, { scale }));
       }
-
-      const scaleProgress = (self.progress - 0.5) / 0.5;
-      const minScale = window.innerWidth < 1000 ? 0.3 : 0.1;
-      const scale = 1 - scaleProgress * (1 - minScale);
-
-      headers.forEach((header) => gsap.set(header, { scale }));
     },
   });
 

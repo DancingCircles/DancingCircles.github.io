@@ -1,7 +1,7 @@
 /* 自定义鼠标样式 - Windows 风格 + 主题色 */
 
 * {
-  cursor: none;
+  cursor: none !important;
 }
 
 /* 主鼠标指针 - SVG箭头 */
@@ -34,15 +34,16 @@ body.cursor-active .custom-cursor {
   transform: scale(0.9);
 }
 
-/* 可点击元素恢复原生指针样式 */
-a,
+/* 所有元素都使用自定义鼠标 */
 button,
 input,
 select,
 textarea,
+a,
 [role="button"],
-.clickable {
-  cursor: pointer;
+.clickable,
+.navbar-pill a {
+  cursor: none !important;
 }
 
 /* 禁用文本选择 - 主页和特定区域 */
