@@ -91,55 +91,96 @@
     overflow: hidden;
 }
 
-/* 顶部信息区 */
-.project-a1 .top-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+/* 顶部大标题区 + 3D 动画组合 - 红色背景板式 */
+.project-a1 .top-hero-section.combined-section {
     width: 100%;
-    margin-bottom: clamp(2rem, 4vh, 4rem);
-    gap: clamp(1rem, 2vw, 2rem);
-}
-
-.project-a1 .info-left,
-.project-a1 .info-center,
-.project-a1 .info-right {
-    flex: 1;
-    border: 2px solid var(--text-primary);
-    padding: clamp(1rem, 2vw, 1.5rem);
+    min-height: clamp(400px, 60vh, 600px);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: clamp(80px, 10vh, 120px);
+    margin-bottom: clamp(2rem, 4vh, 4rem);
+    padding: clamp(2rem, 4vw, 4rem);
+    background-color: #FF3347; /* 红色背景 */
+    position: relative;
+    overflow: hidden;
 }
 
-.project-a1 .info-left {
+.project-a1 .hero-title-wrapper {
+    position: relative;
+    text-align: left;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-start;
+    width: 100%;
+    padding-right: 40%; /* 红色板式留白 */
 }
 
-.project-a1 .info-center {
-    justify-content: center;
+/* 3D 动画区域 */
+.project-a1 .three-animation-section {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 1;
 }
 
-.project-a1 .info-right {
-    justify-content: flex-end;
+.project-a1 .three-animation-section canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
 }
 
-.project-a1 .info-center p,
-.project-a1 .info-right p {
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: clamp(0.75rem, 1.2vw, 1rem);
+/* 双标题头部 */
+.project-a1 .dual-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: clamp(2rem, 4vh, 3rem);
+}
+
+.project-a1 .left-title {
+    font-family: "Inter", "Manrope", sans-serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-primary);
+    line-height: 1.1;
+    color: #000000;
     margin: 0;
-    line-height: 1.3;
-    text-align: center;
+    letter-spacing: -0.01em;
 }
 
-.project-a1 .info-right p {
-    text-align: right;
+.project-a1 .right-title {
+    font-family: "Inter", "Manrope", sans-serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #000000;
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-transform: none;
+}
+
+/* 介绍正文 */
+.project-a1 .intro-body {
+    margin-top: clamp(1.5rem, 3vh, 2.5rem);
+}
+
+.project-a1 .intro-paragraph {
+    font-family: "Inter", "Manrope", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+    margin: 0 0 clamp(1rem, 2vh, 1.5rem) 0;
+}
+
+.project-a1 .intro-paragraph:last-child {
+    margin-bottom: 0;
 }
 
 /* 分隔线 */
@@ -150,26 +191,267 @@
     margin: clamp(2rem, 3vh, 3rem) 0;
 }
 
-/* 主内容区 */
+/* 主内容区 - 波普艺术容器 */
 .project-a1 .main-content {
     display: flex;
     flex: 1;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
     gap: 0;
-    min-height: 60vh;
+    min-height: 80vh;
+    padding: clamp(2rem, 4vw, 6rem) 0;
 }
 
-/* 左侧 */
-.project-a1 .left-side {
-    flex: 0 0 48%;
+.project-a1 .pop-art-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 clamp(2rem, 4vw, 4rem);
 }
 
-/* Logo徽章 */
+/* 波普艺术卡片 */
+.project-a1 .pop-art-card {
+    position: relative;
+    width: clamp(600px, 80vw, 1000px);
+    max-width: 90%;
+    background: var(--bg-secondary);
+    border: 8px solid #2E2E2E;
+    border-radius: 20px;
+    padding: clamp(2rem, 4vw, 4rem);
+    box-shadow: 
+        0 0 0 4px var(--bg-secondary),
+        0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: visible;
+}
+
+/* 顶部标签装饰 */
+.project-a1 .card-tabs {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    display: flex;
+    gap: 8px;
+}
+
+.project-a1 .tab {
+    width: clamp(80px, 12vw, 150px);
+    height: clamp(35px, 5vh, 50px);
+    border-radius: 12px 12px 0 0;
+    border: 6px solid #2E2E2E;
+    border-bottom: none;
+}
+
+.project-a1 .tab-pink {
+    background: linear-gradient(180deg, #FF69B4 0%, #FF85C1 100%);
+}
+
+.project-a1 .tab-blue {
+    background: linear-gradient(180deg, #4169E1 0%, #5B7FE8 100%);
+}
+
+.project-a1 .tab-cyan {
+    background: linear-gradient(180deg, #7DD3C0 0%, #92DCC9 100%);
+}
+
+/* 星星边框装饰 */
+.project-a1 .star-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.project-a1 .star {
+    position: absolute;
+    width: clamp(60px, 8vw, 100px);
+    height: clamp(60px, 8vw, 100px);
+    background: linear-gradient(135deg, #7DD3C0 0%, #5FBAAA 100%);
+    clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+    );
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.project-a1 .star-tl {
+    top: -30px;
+    left: -30px;
+    transform: rotate(-15deg);
+}
+
+.project-a1 .star-tr {
+    top: -25px;
+    right: -35px;
+    transform: rotate(20deg);
+}
+
+.project-a1 .star-bl {
+    bottom: -35px;
+    left: -25px;
+    transform: rotate(45deg);
+}
+
+.project-a1 .star-br {
+    bottom: -30px;
+    right: -30px;
+    transform: rotate(-30deg);
+}
+
+/* 卡片内容 */
+.project-a1 .card-content {
+    position: relative;
+    background: #FFF8F0;
+    border: 6px solid #2E2E2E;
+    border-radius: 12px;
+    padding: clamp(2rem, 3vw, 3rem);
+    min-height: clamp(400px, 60vh, 600px);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 卡片顶部小字 */
+.project-a1 .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: clamp(1rem, 2vh, 2rem);
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+    font-weight: 400;
+    color: #666;
+    line-height: 1.3;
+}
+
+.project-a1 .header-left {
+    text-align: left;
+}
+
+.project-a1 .header-right {
+    text-align: right;
+}
+
+/* 波普风格主标题 */
+.project-a1 .pop-title {
+    font-family: "Fredoka", sans-serif;
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 700;
+    line-height: 0.9;
+    text-align: center;
+    color: #FF69B4;
+    text-transform: uppercase;
+    margin: 0 0 clamp(1rem, 2vh, 2rem) 0;
+    text-shadow: 
+        4px 4px 0 #4169E1,
+        6px 6px 0 #2E2E2E;
+    position: relative;
+    z-index: 2;
+}
+
+/* 重复文字背景 */
+.project-a1 .background-text {
+    position: relative;
+    width: 100%;
+    height: clamp(120px, 20vh, 200px);
+    overflow: hidden;
+    margin-bottom: clamp(1rem, 2vh, 2rem);
+    background: linear-gradient(to bottom, #FFF8F0, #FFF0E6);
+    border: 3px solid #2E2E2E;
+    border-radius: 8px;
+}
+
+.project-a1 .repeat-text {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+    font-weight: 600;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    padding: clamp(0.8rem, 1.5vw, 1.2rem);
+    word-wrap: break-word;
+}
+
+/* 装饰图案区域 */
+.project-a1 .decoration-area {
+    position: absolute;
+    top: 50%;
+    right: clamp(1.5rem, 4vw, 3rem);
+    transform: translateY(-50%);
+    width: clamp(120px, 20vw, 200px);
+    height: clamp(150px, 25vh, 250px);
+    background: linear-gradient(135deg, #D4A574 0%, #C89968 100%);
+    border: 4px solid #2E2E2E;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* 魔法棒装饰 */
+.project-a1 .wand-decoration {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-a1 .wand-stick {
+    position: absolute;
+    width: 6px;
+    height: 60%;
+    background: linear-gradient(180deg, #FF69B4 0%, #4169E1 100%);
+    border: 2px solid #2E2E2E;
+    border-radius: 10px;
+    transform: rotate(-45deg);
+}
+
+.project-a1 .wand-star {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: clamp(30px, 5vw, 50px);
+    height: clamp(30px, 5vw, 50px);
+    background: #FFD700;
+    border: 3px solid #2E2E2E;
+    clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+    );
+}
+
+/* 定义列表 - 更新样式 */
+.project-a1 .definitions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1.5vh, 1.2rem);
+    margin-top: auto;
+    padding-top: clamp(1rem, 2vh, 2rem);
+}
+
+/* Logo徽章 - 保留用于顶部信息区 */
 .project-a1 .logo-badge {
     display: inline-block;
 }
@@ -214,78 +496,15 @@
     line-height: 1.3;
 }
 
-.project-a1 .left-title {
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: clamp(4rem, 10vw, 12rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 0.85;
-    text-transform: uppercase;
-    margin: 0;
-    color: var(--text-primary);
-    position: relative;
-    text-align: center;
-    z-index: 0;
-}
-
-/* 圆形装饰 */
-.project-a1 .circle-decoration {
-    width: clamp(120px, 18vw, 220px);
-    height: clamp(120px, 18vw, 220px);
-    border-radius: 50%;
-    background: linear-gradient(135deg, #5FBAAA 0%, #4A9D8F 100%);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    pointer-events: none;
-}
-
-/* 中间竖线 */
-.project-a1 .center-divider {
-    width: 2px;
-    min-height: 100%;
-    background-color: var(--text-primary);
-    flex-shrink: 0;
-    align-self: stretch;
-}
-
-/* 右侧 */
-.project-a1 .right-side {
-    flex: 0 0 52%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: clamp(2rem, 4vh, 4rem);
-    padding: 0 clamp(2rem, 4vw, 4rem);
-}
-
-.project-a1 .big-title {
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: clamp(6rem, 18vw, 22rem);
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    line-height: 0.8;
-    text-transform: uppercase;
-    margin: 0;
-    color: var(--text-primary);
-}
-
-/* 定义列表 */
-.project-a1 .definitions {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
 .project-a1 .def-item {
     font-family: "Roboto Condensed", sans-serif;
-    font-size: clamp(0.85rem, 1.2vw, 1.1rem);
-    font-weight: 400;
-    line-height: 1.4;
-    color: var(--text-primary);
+    font-size: clamp(0.9rem, 1.3vw, 1.15rem);
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2E2E2E;
     margin: 0;
+    padding-left: clamp(0.5rem, 1vw, 1rem);
+    border-left: 4px solid #FF69B4;
 }
 
 .project-a1 .def-num {
@@ -334,39 +553,56 @@
         padding: 2rem;
     }
 
-    .project-a1 .top-info {
-        flex-direction: column;
-        gap: 1rem;
+    /* 顶部大标题响应式 */
+    .project-a1 .top-hero-section.combined-section {
+        min-height: clamp(350px, 50vh, 500px);
+        padding: clamp(1.5rem, 3vw, 3rem);
     }
 
-    .project-a1 .info-left,
-    .project-a1 .info-center,
-    .project-a1 .info-right {
-        justify-content: center;
-        text-align: center;
-        min-height: 60px;
+    .project-a1
+    .project-a1 .right-title {
+        font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+    }
+    
+    .project-a1 .intro-paragraph {
+        font-size: clamp(0.95rem, 1.8vw, 1.4rem);
     }
 
-    .project-a1 .info-right p {
-        text-align: center;
+    /* 3D 动画区域响应式 */
+    .project-a1 .three-animation-section {
+        width: 42%;
     }
 
-    .project-a1 .main-content {
-        flex-direction: column;
-        gap: 2rem;
+    /* 波普艺术卡片响应式 */
+    .project-a1 .pop-art-card {
+        width: 95%;
+        padding: clamp(1.5rem, 3vw, 2rem);
     }
 
-    .project-a1 .center-divider {
-        width: 100%;
-        height: 2px;
+    .project-a1 .card-content {
+        padding: clamp(1.5rem, 2.5vw, 2rem);
+        min-height: clamp(350px, 50vh, 500px);
     }
 
-    .project-a1 .left-title {
-        font-size: clamp(3rem, 10vw, 8rem);
+    .project-a1 .pop-title {
+        font-size: clamp(2.5rem, 10vw, 5rem);
+        text-shadow: 
+            3px 3px 0 #4169E1,
+            5px 5px 0 #2E2E2E;
     }
 
-    .project-a1 .big-title {
-        font-size: clamp(4rem, 15vw, 12rem);
+    .project-a1 .star {
+        width: clamp(50px, 7vw, 70px);
+        height: clamp(50px, 7vw, 70px);
+    }
+
+    .project-a1 .decoration-area {
+        width: clamp(100px, 18vw, 150px);
+        height: clamp(120px, 22vh, 180px);
+    }
+
+    .project-a1 .background-text {
+        height: clamp(100px, 18vh, 150px);
     }
 }
 
@@ -384,17 +620,128 @@
         gap: 2rem;
     }
 
-    .project-a1 .left-title {
-        font-size: clamp(2.5rem, 9vw, 6rem);
+    /* 顶部大标题小屏幕优化 */
+    .project-a1 .top-hero-section.combined-section {
+        min-height: clamp(300px, 45vh, 450px);
+        padding: clamp(1.2rem, 2.5vw, 2.5rem) 1rem;
     }
 
-    .project-a1 .big-title {
-        font-size: clamp(3.5rem, 12vw, 8rem);
+    .project-a1 .hero-title-wrapper {
+        text-align: center;
+        justify-content: center;
+        padding-right: 0; /* 小屏去掉右侧预留 */
     }
 
-    .project-a1 .circle-decoration {
-        width: clamp(80px, 14vw, 120px);
-        height: clamp(80px, 14vw, 120px);
+    .project-a1 .dual-header {
+        flex-direction: column;
+        gap: clamp(0.8rem, 2vh, 1.2rem);
+    }
+    
+    .project-a1 .left-title,
+    .project-a1 .right-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+    }
+    
+    .project-a1 .intro-paragraph {
+        font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+    }
+
+    /* 3D 动画区域小屏幕优化 */
+    .project-a1 .three-animation-section {
+        width: 60%;
+        right: -10%;
+    }
+
+    /* 波普艺术卡片小屏幕优化 */
+    .project-a1 .pop-art-card {
+        width: 98%;
+        padding: 1rem;
+        border: 6px solid #2E2E2E;
+    }
+
+    .project-a1 .card-tabs {
+        gap: 4px;
+    }
+
+    .project-a1 .tab {
+        width: clamp(60px, 10vw, 100px);
+        height: clamp(28px, 4vh, 40px);
+        border: 4px solid #2E2E2E;
+    }
+
+    .project-a1 .card-content {
+        padding: 1.2rem;
+        min-height: clamp(300px, 45vh, 400px);
+        border: 4px solid #2E2E2E;
+    }
+
+    .project-a1 .pop-title {
+        font-size: clamp(2rem, 9vw, 3.5rem);
+        text-shadow: 
+            2px 2px 0 #4169E1,
+            4px 4px 0 #2E2E2E;
+    }
+
+    .project-a1 .star {
+        width: clamp(40px, 6vw, 60px);
+        height: clamp(40px, 6vw, 60px);
+    }
+
+    .project-a1 .star-tl,
+    .project-a1 .star-tr,
+    .project-a1 .star-bl,
+    .project-a1 .star-br {
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+    }
+
+    .project-a1 .star-tl {
+        top: -20px;
+        left: -20px;
+    }
+
+    .project-a1 .star-tr {
+        top: -18px;
+        right: -22px;
+    }
+
+    .project-a1 .star-bl {
+        bottom: -22px;
+        left: -18px;
+    }
+
+    .project-a1 .star-br {
+        bottom: -20px;
+        right: -20px;
+    }
+
+    .project-a1 .decoration-area {
+        position: relative;
+        width: 100%;
+        height: clamp(100px, 15vh, 140px);
+        margin: clamp(0.8rem, 1.5vh, 1.2rem) 0;
+        transform: none;
+        right: 0;
+        top: 0;
+    }
+
+    .project-a1 .background-text {
+        height: clamp(80px, 15vh, 120px);
+    }
+
+    .project-a1 .repeat-text {
+        font-size: clamp(0.6rem, 0.85vw, 0.75rem);
+        padding: 0.6rem;
+    }
+
+    .project-a1 .def-item {
+        font-size: clamp(0.85rem, 1.2vw, 1rem);
+    }
+
+    .project-a1 .card-header {
+        font-size: clamp(0.65rem, 0.9vw, 0.8rem);
     }
 }
 

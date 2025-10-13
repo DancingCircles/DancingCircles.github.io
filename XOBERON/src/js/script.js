@@ -2,6 +2,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
+// 导入 Three.js 初始化（会自动执行）
+import './initThree.jsx';
+
 document.addEventListener("DOMContentLoaded", () => {
   // 注册 GSAP 插件
   gsap.registerPlugin(ScrollTrigger);
