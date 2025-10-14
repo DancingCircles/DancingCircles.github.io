@@ -3,7 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { useGLTF, useAnimations, SoftShadows } from "@react-three/drei"
 
 function Model(props) {
-  const { nodes, materials, animations } = useGLTF("/models/jump-transformed.glb")
+  const { nodes, materials, animations } = useGLTF(`${import.meta.env.BASE_URL}models/jump-transformed.glb`)
   const { ref, actions } = useAnimations(animations)
   const [scrollProgress, setScrollProgress] = useState(0)
   
