@@ -75,12 +75,10 @@ export function initCustomCursor() {
   // 鼠标离开窗口时隐藏
   document.addEventListener('mouseleave', () => {
     cursor.style.opacity = '0';
-    cursorDot.style.opacity = '0';
   });
 
   document.addEventListener('mouseenter', () => {
     cursor.style.opacity = '1';
-    cursorDot.style.opacity = '1';
   });
 
   console.log('✅ 自定义鼠标已初始化');

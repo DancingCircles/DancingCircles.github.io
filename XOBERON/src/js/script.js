@@ -3,15 +3,79 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
 // 导入 Three.js 初始化（会自动执行）
-import './initThree.jsx';
+import './init/initThree.jsx';
 // 导入 Quote 旋转文字初始化
-import './initQuote.jsx';
+import './init/initQuote.jsx';
 // 导入 Waves 初始化
-import './initWaves.jsx';
+import './init/initWaves.jsx';
 // 导入自定义鼠标
-import { initCustomCursor } from './customCursor.js';
+import { initCustomCursor } from './utils/customCursor.js';
 // 导入导航栏
-import { initNavbar } from './navbar.js';
+import { initNavbar } from './utils/navbar.js';
+
+// ============================================
+// 开场加载动画
+// ============================================
+function initLoader() {
+  const loader = document.getElementById('loader');
+  const yearCounter = document.getElementById('yearCounter');
+  const body = document.body;
+  
+  if (!loader || !yearCounter) return;
+  
+  // 防止页面滚动
+  body.classList.add('loading');
+  
+  // 年份计数动画：从1950到2025
+  const startYear = 1950;
+  const endYear = 2025;
+  const duration = 2200; // 2.2秒
+  const startTime = Date.now();
+  
+  let lastDisplayedYear = startYear - 1; // 确保第一帧就开始更新
+  
+  function animateCounter() {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    // 使用更平滑的缓动函数
+    const easeProgress = progress < 0.5 
+      ? 4 * progress * progress * progress  // easeInCubic 前半段
+      : 1 - Math.pow(-2 * progress + 2, 3) / 2; // easeOutCubic 后半段
+    
+    const currentYear = Math.round(startYear + (endYear - startYear) * easeProgress);
+    
+    // 只在数字变化时更新DOM，避免不必要的重绘
+    if (currentYear !== lastDisplayedYear) {
+      yearCounter.textContent = currentYear;
+      lastDisplayedYear = currentYear;
+    }
+    
+    if (progress < 1) {
+      requestAnimationFrame(animateCounter);
+    } else {
+      // 确保显示最终年份
+      yearCounter.textContent = endYear;
+      
+      // 计数完成后立即消失，不停顿
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+        body.classList.remove('loading');
+        
+        // 动画完成后移除元素
+        setTimeout(() => {
+          loader.remove();
+        }, 800);
+      }, 100);
+    }
+  }
+  
+  // 立即开始计数动画
+  requestAnimationFrame(animateCounter);
+}
+
+// 立即初始化加载动画
+initLoader();
 
 document.addEventListener("DOMContentLoaded", () => {
   // 初始化自定义鼠标

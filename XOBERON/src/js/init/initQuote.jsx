@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { QuoteScene } from './QuoteScene'
+import { QuoteScene } from '../components/QuoteScene'
 
 // 初始化引用场景
 function initQuoteScene() {

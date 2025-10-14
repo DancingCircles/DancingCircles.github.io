@@ -8,18 +8,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Black+Ops+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/styles/main.css" />
-    <link rel="stylesheet" href="./src/styles/cursor.css" />
-    <link rel="stylesheet" href="./src/styles/navbar.css" />
-    <link rel="stylesheet" href="./src/styles/waves-hero.css" />
-    <link rel="stylesheet" href="./src/styles/brand-hero.css" />
-    <link rel="stylesheet" href="./src/styles/marquee.css" />
-    <link rel="stylesheet" href="./src/styles/about.css" />
-    <link rel="stylesheet" href="./src/styles/quote.css" />
-    <link rel="stylesheet" href="./src/styles/faq.css" />
-    <link rel="stylesheet" href="./src/styles/final.css" />
+    <link rel="stylesheet" href="./src/styles/layout/main.css" />
+    <link rel="stylesheet" href="./src/styles/layout/cursor.css" />
+    <link rel="stylesheet" href="./src/styles/layout/navbar.css" />
+    <link rel="stylesheet" href="./src/styles/sections/waves-hero.css" />
+    <link rel="stylesheet" href="./src/styles/sections/brand-hero.css" />
+    <link rel="stylesheet" href="./src/styles/sections/marquee.css" />
+    <link rel="stylesheet" href="./src/styles/sections/about.css" />
+    <link rel="stylesheet" href="./src/styles/sections/quote.css" />
+    <link rel="stylesheet" href="./src/styles/sections/faq.css" />
+    <link rel="stylesheet" href="./src/styles/sections/final.css" />
+    <link rel="stylesheet" href="./src/styles/layout/loader.css" />
 </head>
 <body>
+    <!-- 开场加载动画 -->
+    <div class="loader-overlay" id="loader">
+        <div class="loader-content">
+            <div class="year-counter" id="yearCounter">1950</div>
+        </div>
+    </div>
+
     <!-- 全局导航栏 -->
     <nav class="global-navbar">
         <div class="navbar-pill">
@@ -57,9 +65,9 @@
         </section>
 
         <section class="services">
-            <div class="services-header"><img src="/whoami.svg" alt="Who Am I" /></div>
-            <div class="services-header"><img src="/whoami.svg" alt="Who Am I" /></div>
-            <div class="services-header"><img src="/whoami.svg" alt="Who Am I" /></div>
+            <div class="services-header"><img src="/images/whoami.svg" alt="Who Am I" /></div>
+            <div class="services-header"><img src="/images/whoami.svg" alt="Who Am I" /></div>
+            <div class="services-header"><img src="/images/whoami.svg" alt="Who Am I" /></div>
         </section>
 
         <section class="services-copy">

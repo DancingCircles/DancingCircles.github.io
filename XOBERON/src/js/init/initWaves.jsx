@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Waves from './Waves.jsx';
+import Waves from '../components/Waves.jsx';
 
 // 初始化 Waves 组件
 const wavesContainer = document.getElementById('waves-container');

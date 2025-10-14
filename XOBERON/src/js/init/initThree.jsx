@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { ThreeScene } from './ThreeScene'
+import { ThreeScene } from '../components/ThreeScene'
 
 // 初始化 Three.js 场景
 function initThreeScene() {
