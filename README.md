@@ -2,7 +2,11 @@
 
 > 一个现代化的交互式个人作品集，展示创意设计和前端开发技能。
 
-[![在线演示](https://img.shields.io/badge/demo-online-green.svg)](https://dancingcircles.github.io/MyDesign/)
+## 🌐 在线预览
+
+**[✨ 立即访问 →](https://dancingcircles.github.io/)**
+
+[![在线演示](https://img.shields.io/badge/demo-online-green.svg)](https://dancingcircles.github.io/)
 [![许可证](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## ✨ 主要特性
@@ -153,10 +157,10 @@ XOBERON/
 
 ```bash
 # 克隆仓库
-git clone https://github.com/DancingCircles/MyDesign.git
+git clone https://github.com/DancingCircles/DancingCircles.github.io.git
 
 # 进入项目目录
-cd MyDesign/XOBERON
+cd DancingCircles.github.io
 
 # 安装依赖
 npm install
