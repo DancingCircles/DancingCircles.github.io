@@ -39,6 +39,32 @@
     overflow: hidden;
 }
 
+/* 镜像图片容器 */
+.project-a1 .about-image-wrapper {
+    position: absolute;
+    right: clamp(4rem, 5.7vw, 7rem);
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(300px, 40vw, 550px);
+    max-width: 50%;
+    height: 55vh;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.project-a1 .about-mirrored-image {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    transform: scaleX(-1);
+    opacity: 0.9;
+    display: block;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .project-a1 .hero-img,
 .project-a1 .outro-img {
     width: 300px;
@@ -523,6 +549,7 @@
     text-transform: uppercase;
     margin: 0;
     color: var(--bg-secondary);
+    z-index: 2;
 }
 
 .project-a1 .text-overlay {
@@ -548,6 +575,12 @@
 
     .project-a1 .about {
         padding: 2rem;
+    }
+
+    .project-a1 .about-image-wrapper {
+        width: clamp(180px, 32vw, 420px);
+        right: clamp(4rem, 5.7vw, 7rem);
+        top: 50%;
     }
 
     .project-a1 .services-copy {
@@ -614,6 +647,11 @@
 
     .project-a1 .about {
         padding: 1.5rem;
+    }
+
+    .project-a1 .about-image-wrapper {
+        width: clamp(160px, 28vw, 320px);
+        right: clamp(4rem, 5.7vw, 7rem);
     }
 
     .project-a1 .services-copy {

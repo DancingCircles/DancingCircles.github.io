@@ -143,7 +143,11 @@ const Waves = ({
     console.log('Waves mounted');
     const canvas = canvasRef.current;
     const container = containerRef.current;
-    ctxRef.current = canvas.getContext('2d');
+    // 使用 willReadFrequently 优化 canvas 性能
+    ctxRef.current = canvas.getContext('2d', { 
+      alpha: true,
+      willReadFrequently: false 
+    });
 
     function setSize() {
       boundingRef.current = container.getBoundingClientRect();
@@ -218,20 +222,35 @@ const Waves = ({
     function drawLines() {
       const { width, height } = boundingRef.current;
       const ctx = ctxRef.current;
+      
+      // 使用更高效的清除方法
       ctx.clearRect(0, 0, width, height);
-      ctx.beginPath();
+      
+      // 设置线条样式（只设置一次）
       ctx.strokeStyle = configRef.current.lineColor;
-      linesRef.current.forEach(points => {
+      ctx.lineWidth = 1;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      
+      ctx.beginPath();
+      
+      const lines = linesRef.current;
+      for (let i = 0; i < lines.length; i++) {
+        const points = lines[i];
         let p1 = moved(points[0], false);
         ctx.moveTo(p1.x, p1.y);
-        points.forEach((p, idx) => {
-          const isLast = idx === points.length - 1;
-          p1 = moved(p, !isLast);
-          const p2 = moved(points[idx + 1] || points[points.length - 1], !isLast);
+        
+        for (let j = 0; j < points.length; j++) {
+          const isLast = j === points.length - 1;
+          p1 = moved(points[j], !isLast);
           ctx.lineTo(p1.x, p1.y);
-          if (isLast) ctx.moveTo(p2.x, p2.y);
-        });
-      });
+          if (isLast) {
+            const p2 = moved(points[points.length - 1], !isLast);
+            ctx.moveTo(p2.x, p2.y);
+          }
+        }
+      }
+      
       ctx.stroke();
     }
 
@@ -284,9 +303,11 @@ const Waves = ({
     setSize();
     setLines();
     frameIdRef.current = requestAnimationFrame(tick);
-    window.addEventListener('resize', onResize);
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    
+    // 使用 passive 监听器提升性能
+    window.addEventListener('resize', onResize, { passive: true });
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
 
     return () => {
       window.removeEventListener('resize', onResize);

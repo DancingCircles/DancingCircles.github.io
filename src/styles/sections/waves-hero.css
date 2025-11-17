@@ -42,6 +42,17 @@
   text-align: center;
   white-space: nowrap;
   overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 4vw, 5rem);
+}
+
+.waves-hero-bottom .giant-text .x-logo {
+  height: clamp(3.5rem, 16vw, 20rem);
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
 }
 
 /* 响应式调整 */
@@ -59,6 +70,10 @@
     font-size: clamp(3rem, 12vw, 10rem);
     letter-spacing: clamp(0.3rem, 2.5vw, 1.5rem);
   }
+  
+  .waves-hero-bottom .giant-text .x-logo {
+    height: clamp(3rem, 12vw, 10rem);
+  }
 }
 
 @media (max-width: 480px) {
@@ -69,6 +84,10 @@
   .waves-hero-bottom .giant-text {
     font-size: clamp(2.5rem, 11vw, 6rem);
     letter-spacing: clamp(0.2rem, 2vw, 1rem);
+  }
+  
+  .waves-hero-bottom .giant-text .x-logo {
+    height: clamp(2.5rem, 11vw, 6rem);
   }
 }
 

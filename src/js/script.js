@@ -87,9 +87,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // 注册 GSAP 插件
   gsap.registerPlugin(ScrollTrigger);
 
-  // 初始化 Lenis 平滑滚动（所有项目共用）
-  const lenis = new Lenis();
-  lenis.on("scroll", ScrollTrigger.update);
+  // 优化 ScrollTrigger 配置
+  ScrollTrigger.config({
+    limitCallbacks: true,
+    ignoreMobileResize: true
+  });
+
+  // 初始化 Lenis 平滑滚动 - 优化配置
+  const lenis = new Lenis({
+    lerp: 0.08, // 稍微降低平滑度，提升响应速度
+    duration: 1.2,
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+    infinite: false
+  });
+
+  // 使用 RAF 优化 ScrollTrigger 更新
+  let ticking = false;
+  lenis.on("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        ScrollTrigger.update();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
 
   gsap.ticker.add((time) => {
     lenis.raf(time * 1000);
@@ -115,62 +138,68 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const container = document.getElementById('marquee-footer');
-    const track = document.getElementById('marquee-track');
+    const track1 = document.getElementById('marquee-track-1');
+    const track2 = document.getElementById('marquee-track-2');
 
-    if (!container || !track) return;
+    if (!container || !track1 || !track2) return;
 
-    // 创建足够多的重复文本以确保无缝循环
-    const repetitions = 4; // 增加重复次数确保屏幕始终有文字
-    let allItems = [];
+    // 创建滚动带的函数
+    const createTrack = (track, isReverse = false) => {
+      const repetitions = 4;
+      let allItems = [];
 
-    for (let i = 0; i < repetitions; i++) {
-      marqueeTexts.forEach(text => {
-        const span = document.createElement('span');
-        span.className = 'marquee-item';
-        span.textContent = text;
-        track.appendChild(span);
-        allItems.push(span);
-      });
-    }
-
-    let position = 0;
-    const speed = 1; // 像素/帧，从左到右
-
-    // 获取单组文字的宽度
-    const getSingleSetWidth = () => {
-      // 计算一组文字的总宽度
-      let width = 0;
-      for (let i = 0; i < marqueeTexts.length; i++) {
-        if (allItems[i]) {
-          width += allItems[i].offsetWidth;
-        }
+      for (let i = 0; i < repetitions; i++) {
+        marqueeTexts.forEach(text => {
+          const span = document.createElement('span');
+          span.className = 'marquee-item';
+          span.textContent = text;
+          track.appendChild(span);
+          allItems.push(span);
+        });
       }
-      return width;
-    };
 
-    // 延迟获取宽度，确保元素已渲染
-    setTimeout(() => {
-      const singleSetWidth = getSingleSetWidth();
-      
-      // 从负位置开始，让文字从右侧进入
-      position = -singleSetWidth;
+      let position = 0;
+      const speed = isReverse ? -1.2 : 1.2; // 像素/帧，第二层反向更快一点
 
-      // 动画循环
-      const animate = () => {
-        position += speed;
-
-        // 当移动到0时，重置到起始位置实现无缝循环
-        if (position >= 0) {
-          position = -singleSetWidth;
+      const getSingleSetWidth = () => {
+        let width = 0;
+        for (let i = 0; i < marqueeTexts.length; i++) {
+          if (allItems[i]) {
+            width += allItems[i].offsetWidth;
+          }
         }
-
-        track.style.transform = `translateX(${position}px)`;
-        requestAnimationFrame(animate);
+        return width;
       };
 
-      // 启动动画
-      animate();
-    }, 100);
+      setTimeout(() => {
+        const singleSetWidth = getSingleSetWidth();
+        position = isReverse ? 0 : -singleSetWidth;
+
+        const animate = () => {
+          position += speed;
+
+          if (isReverse) {
+            // 反向滚动（从左到右）
+            if (position <= -singleSetWidth) {
+              position = 0;
+            }
+          } else {
+            // 正向滚动（从右到左）
+            if (position >= 0) {
+              position = -singleSetWidth;
+            }
+          }
+
+          track.style.transform = `translateX(${position}px)`;
+        };
+
+        gsap.ticker.add(animate);
+      }, 100);
+    };
+
+    // 创建两条滚动带，第二条反向
+    createTrack(track1, false);
+    createTrack(track2, true);
   };
 
   // 初始化 Marquee
@@ -201,65 +230,67 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // A1: services-copy section 渐入动画
-  ScrollTrigger.create({
-    trigger: ".project-a1 .services-copy",
-    start: "top 80%",
-    end: "top 20%",
-    scrub: 1,
-    onUpdate: (self) => {
-      const section = document.querySelector(".project-a1 .services-copy");
-      if (section) {
-        section.style.opacity = self.progress;
-      }
-    },
-  });
+  const servicesCopySection = document.querySelector(".project-a1 .services-copy");
+  if (servicesCopySection) {
+    ScrollTrigger.create({
+      trigger: ".project-a1 .services-copy",
+      start: "top 80%",
+      end: "top 20%",
+      scrub: 1,
+      onUpdate: (self) => {
+        servicesCopySection.style.opacity = self.progress;
+      },
+    });
+  }
 
-  // A1: WHOAMI 动画 - 滑入
-  ScrollTrigger.create({
-    trigger: ".project-a1 .services",
-    start: "top bottom",
-    end: "top top",
-    scrub: 1,
-    onUpdate: (self) => {
-      const headers = document.querySelectorAll(".project-a1 .services-header");
-      // 滑入时就设置大尺寸 scale: 1.5
-      gsap.set(headers[0], { x: `${100 - self.progress * 100}%`, scale: 1.5 });
-      gsap.set(headers[1], { x: `-${100 - self.progress * 100}%`, scale: 1.5 });
-      gsap.set(headers[2], { x: `${100 - self.progress * 100}%`, scale: 1.5 });
-    },
-  });
+  // A1: WHOAMI 动画 - 缓存 DOM 元素
+  const servicesHeaders = document.querySelectorAll(".project-a1 .services-header");
+  
+  if (servicesHeaders.length > 0) {
+    // A1: WHOAMI 动画 - 滑入
+    ScrollTrigger.create({
+      trigger: ".project-a1 .services",
+      start: "top bottom",
+      end: "top top",
+      scrub: 1,
+      onUpdate: (self) => {
+        // 滑入时就设置大尺寸 scale: 1.5
+        gsap.set(servicesHeaders[0], { x: `${100 - self.progress * 100}%`, scale: 1.5 });
+        gsap.set(servicesHeaders[1], { x: `-${100 - self.progress * 100}%`, scale: 1.5 });
+        gsap.set(servicesHeaders[2], { x: `${100 - self.progress * 100}%`, scale: 1.5 });
+      },
+    });
 
-  // A1: WHOAMI 动画 - 固定和缩放
-  ScrollTrigger.create({
-    trigger: ".project-a1 .services",
-    start: "top top",
-    end: `+=${window.innerHeight * 2}`,
-    pin: true,
-    scrub: 1,
-    pinSpacing: false,
-    onUpdate: (self) => {
-      const headers = document.querySelectorAll(".project-a1 .services-header");
-
-      if (self.progress <= 0.5) {
-        const yProgress = self.progress / 0.5;
-        gsap.set(headers[0], { y: `${yProgress * 100}%` });
-        gsap.set(headers[2], { y: `${yProgress * -100}%` });
-        
-        // 前50%保持大尺寸（scale: 1.5）
-        headers.forEach((header) => gsap.set(header, { scale: 1.5 }));
-      } else {
-        gsap.set(headers[0], { y: "100%" });
-        gsap.set(headers[2], { y: "-100%" });
-        
-        // 后50%从1.5缩放到最小尺寸
-        const scaleProgress = (self.progress - 0.5) / 0.5;
-        const minScale = window.innerWidth < 1000 ? 0.6 : 0.5;
-        const scale = 1.5 - scaleProgress * (1.5 - minScale);
-        
-        headers.forEach((header) => gsap.set(header, { scale }));
-      }
-    },
-  });
+    // A1: WHOAMI 动画 - 固定和缩放
+    ScrollTrigger.create({
+      trigger: ".project-a1 .services",
+      start: "top top",
+      end: `+=${window.innerHeight * 2}`,
+      pin: true,
+      scrub: 1,
+      pinSpacing: false,
+      onUpdate: (self) => {
+        if (self.progress <= 0.5) {
+          const yProgress = self.progress / 0.5;
+          gsap.set(servicesHeaders[0], { y: `${yProgress * 100}%` });
+          gsap.set(servicesHeaders[2], { y: `${yProgress * -100}%` });
+          
+          // 前50%保持大尺寸（scale: 1.5）
+          servicesHeaders.forEach((header) => gsap.set(header, { scale: 1.5 }));
+        } else {
+          gsap.set(servicesHeaders[0], { y: "100%" });
+          gsap.set(servicesHeaders[2], { y: "-100%" });
+          
+          // 后50%从1.5缩放到最小尺寸
+          const scaleProgress = (self.progress - 0.5) / 0.5;
+          const minScale = window.innerWidth < 1000 ? 0.6 : 0.5;
+          const scale = 1.5 - scaleProgress * (1.5 - minScale);
+          
+          servicesHeaders.forEach((header) => gsap.set(header, { scale }));
+        }
+      },
+    });
+  }
 
   // ============================================
   // Project A2: Phive Text Scroll Animation (完整版本)
@@ -286,16 +317,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   calculateDynamicScaleA2();
 
-  // A2: 优化的 resize 处理（使用 requestAnimationFrame 节流）
+  // A2: 优化的 resize 处理（使用防抖 + RAF）
+  let a2ResizeTimeout = null;
   let a2ResizeRaf = null;
+  
   window.addEventListener("resize", () => {
-    if (a2ResizeRaf) return;
-    a2ResizeRaf = requestAnimationFrame(() => {
-      a2ResizeRaf = null;
-      calculateDynamicScaleA2();
-      ScrollTrigger.refresh();
-    });
-  });
+    // 清除之前的定时器
+    if (a2ResizeTimeout) {
+      clearTimeout(a2ResizeTimeout);
+    }
+    
+    // 使用防抖，只在停止 resize 300ms 后执行
+    a2ResizeTimeout = setTimeout(() => {
+      if (a2ResizeRaf) return;
+      a2ResizeRaf = requestAnimationFrame(() => {
+        calculateDynamicScaleA2();
+        ScrollTrigger.refresh();
+        a2ResizeRaf = null;
+      });
+    }, 300);
+  }, { passive: true });
 
   // A2: Elements and helpers
   const a2TextElement1 = document.querySelector(".project-a2 .sticky-text-1 .text-container h1");
@@ -382,7 +423,9 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // A2: sticky-text-3 - 复杂的固定、放大、背景渐隐动画
+  // A2: sticky-text-3 - 复杂的固定、放大、背景渐隐动画（缓存 DOM 查询）
+  const a2HeaderElement = document.querySelector(".project-a2 .header");
+  
   ScrollTrigger.create({
     trigger: ".project-a2 .sticky-text-3",
     start: "top top",
@@ -394,52 +437,36 @@ document.addEventListener("DOMContentLoaded", () => {
       const progress = self.progress;
 
       if (a2TextContainer3) {
-        // 初始状态
-        if (progress === 0) {
-          a2TextContainer3.style.backgroundColor = a2OutroTextBgColor;
-          a2TextContainer3.style.opacity = 1;
-        }
-
         // 0-75%: 文字放大从 1 倍到 10 倍
-        if (progress <= 0.75) {
-          const scaleProgress = progress / 0.75;
-          const currentScale = 1 + 9 * scaleProgress;
-          a2TextContainer3.style.transform = `scale3d(${currentScale}, ${currentScale}, 1)`;
-        } else {
-          a2TextContainer3.style.transform = "scale3d(10, 10, 1)";
-        }
+        const scaleProgress = Math.min(progress / 0.75, 1);
+        const currentScale = 1 + 9 * scaleProgress;
+        a2TextContainer3.style.transform = `scale3d(${currentScale}, ${currentScale}, 1)`;
 
-        // 背景渐隐控制
+        // 背景渐隐控制（优化逻辑）
+        let bgColor;
         if (progress < 0.25) {
-          // 0-25%: 保持黑色背景
-          a2TextContainer3.style.backgroundColor = a2OutroTextBgColor;
-          a2TextContainer3.style.opacity = 1;
-        } else if (progress >= 0.25 && progress < 0.5) {
-          // 25%-50%: 背景渐隐
+          bgColor = a2OutroTextBgColor;
+        } else if (progress < 0.5) {
           const fadeProgress = (progress - 0.25) / 0.25;
           const opacity = 1 - fadeProgress;
-          a2TextContainer3.style.backgroundColor = `rgba(244, 228, 193, ${opacity})`;
-        } else if (progress >= 0.5) {
-          // 50%+: 背景完全透明
-          a2TextContainer3.style.backgroundColor = `rgba(244, 228, 193, 0)`;
+          bgColor = `rgba(244, 228, 193, ${opacity})`;
+        } else {
+          bgColor = `rgba(244, 228, 193, 0)`;
         }
+        a2TextContainer3.style.backgroundColor = bgColor;
       }
 
-      // 控制 header 小字的显示：在背景完全透明、图片完全显示后才出现
-      const a2HeaderElement = document.querySelector(".project-a2 .header");
+      // 控制 header 小字的显示
       if (a2HeaderElement) {
+        let opacity;
         if (progress < 0.5) {
-          // 背景还在淡出中，小字保持不可见
-          a2HeaderElement.style.opacity = 0;
-        } else if (progress >= 0.5 && progress < 0.75) {
-          // 背景已完全透明，图片完全显示，小字逐渐出现
-          const fadeProgress = (progress - 0.5) / 0.25;
-          const opacity = Math.max(0, Math.min(1, fadeProgress));
-          a2HeaderElement.style.opacity = opacity;
+          opacity = 0;
+        } else if (progress < 0.75) {
+          opacity = (progress - 0.5) / 0.25;
         } else {
-          // 完全显示
-          a2HeaderElement.style.opacity = 1;
+          opacity = 1;
         }
+        a2HeaderElement.style.opacity = opacity;
       }
     },
   });

@@ -30,21 +30,21 @@ export function initCustomCursor() {
   let cursorX = 0;
   let cursorY = 0;
 
-  // 鼠标移动事件
+  // 鼠标移动事件（使用 passive 优化）
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-  });
+  }, { passive: true });
 
-  // 平滑跟随动画
+  // 平滑跟随动画（使用 transform 优化性能）
   function animate() {
     // 箭头延迟跟随
     const delay = 0.2;
     cursorX += (mouseX - cursorX) * delay;
     cursorY += (mouseY - cursorY) * delay;
 
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
+    // 使用 transform 代替 left/top，GPU 加速
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
 
     requestAnimationFrame(animate);
   }

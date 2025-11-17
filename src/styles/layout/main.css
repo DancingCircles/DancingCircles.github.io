@@ -36,6 +36,8 @@ img {
 /* Remove default styles that might conflict */
 section {
     position: relative;
+    /* 优化渲染性能 */
+    contain: layout style paint;
 }
 
 
