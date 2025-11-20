@@ -1,0 +1,35 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 20px 0;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border: 1px solid #5D4037;
+    border-radius: 50px;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--color-accent-green);
+}

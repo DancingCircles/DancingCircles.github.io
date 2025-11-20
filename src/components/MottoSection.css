@@ -1,0 +1,61 @@
+.motto-section {
+    position: relative;
+    height: 100vh;
+    background-image: url('/assets/bg.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-color: var(--color-bg-cream);
+    /* Fallback/blend */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15vh;
+}
+
+.motto-content {
+    text-align: center;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.motto-label {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.motto-quote {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-text-dark);
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.motto-leaf-top-right {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: auto;
+    transform: rotate(180deg);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.motto-leaf-bottom-left {
+    position: absolute;
+    bottom: 100px;
+    /* Adjust based on bg image content */
+    left: -50px;
+    width: 150px;
+    height: auto;
+    transform: rotate(45deg);
+    opacity: 0.8;
+    pointer-events: none;
+}

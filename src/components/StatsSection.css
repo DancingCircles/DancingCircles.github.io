@@ -1,0 +1,17 @@
+.stats-section {
+    position: relative;
+    background-color: #FFD700;
+    /* Sunny Yellow */
+    height: 150px;
+    /* Fixed height for the transition band */
+    padding: 0;
+    color: #2F3E30;
+    overflow: hidden;
+    clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+    /* Diagonal cut */
+    margin-bottom: -5vw;
+    margin-top: -5vw;
+    /* Negative margin to overlap */
+    z-index: 5;
+    /* Ensure it sits on top */
+}

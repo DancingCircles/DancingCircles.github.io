@@ -1,0 +1,107 @@
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--color-bg-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.deco-left-flowers {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    height: 110%;
+    max-height: none;
+    width: auto;
+    object-fit: cover;
+    object-position: bottom left;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.95;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+.deco-right-leaves {
+    position: absolute;
+    top: -5%;
+    right: -5%;
+    height: 110%;
+    max-height: none;
+    width: auto;
+    object-fit: cover;
+    object-position: top right;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.95;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 5;
+    max-width: 800px;
+    padding: 0 20px;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+.title-aloha {
+    position: relative;
+    font-family: var(--font-heading);
+    font-size: 8rem;
+    color: var(--color-text-dark);
+    line-height: 1;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.title-flower {
+    position: absolute;
+    top: -20px;
+    right: -40px;
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+    filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.15));
+}
+
+.subtitle {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.quote {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.cta-button {
+    background-color: #2F3E30;
+    color: #fff;
+    border: none;
+    padding: 15px 50px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E");
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background-color: #3E5040;
+}

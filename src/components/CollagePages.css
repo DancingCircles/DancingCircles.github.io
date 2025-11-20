@@ -1,0 +1,126 @@
+.collage-page {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px;
+}
+
+.collage-page-1 {
+    background-color: #D4E6F1;
+    /* Light Blue */
+}
+
+.collage-page-2 {
+    background-color: #FFD700;
+    /* Sunny Yellow */
+}
+
+.collage-page-3 {
+    background-color: #D4E6F1;
+    /* Light Blue */
+}
+
+.collage-content {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.collage-text-block {
+    flex: 1;
+    max-width: 500px;
+}
+
+.collage-img-block {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.collage-main-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.collage-main-img:hover {
+    transform: scale(1.02);
+}
+
+/* Typography */
+.cp-subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #5D4037;
+}
+
+.cp-title {
+    font-family: var(--font-subheading);
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #2F3E30;
+    margin-bottom: 30px;
+}
+
+.cp-description {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4A4A4A;
+    margin-bottom: 40px;
+}
+
+.cp-number {
+    font-family: var(--font-heading);
+    font-size: 8rem;
+    color: rgba(47, 62, 48, 0.1);
+    position: absolute;
+    z-index: -1;
+}
+
+/* Specific Layout Adjustments */
+.layout-left .collage-content {
+    flex-direction: row;
+}
+
+.layout-right .collage-content {
+    flex-direction: row-reverse;
+}
+
+.layout-center {
+    flex-direction: column;
+    text-align: center;
+}
+
+.layout-center .collage-content {
+    flex-direction: column;
+}
+
+.layout-center .collage-text-block {
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+@media (max-width: 1024px) {
+    .collage-content {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .collage-text-block {
+        margin-bottom: 40px;
+    }
+}

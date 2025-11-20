@@ -1,0 +1,38 @@
+:root {
+  --color-bg-cream: #F9F8E8;
+  --color-text-dark: #2F3E30;
+  --color-text-light: #FFFFFF;
+  --color-accent-green: #88A550;
+  --color-accent-brown: #5D4037;
+  --font-heading: 'Cinzel', serif;
+  --font-subheading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-cream);
+  color: var(--color-text-dark);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

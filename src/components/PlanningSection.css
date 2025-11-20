@@ -1,0 +1,100 @@
+.planning-section {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--color-bg-cream);
+    padding: 100px 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.planning-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--color-text-dark);
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    text-transform: uppercase;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.info-card {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 300px;
+    position: relative;
+    background-color: rgba(249, 248, 232, 0.8);
+}
+
+.card-badge {
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    width: 50px;
+    height: 50px;
+    background-color: #2F3E30;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+}
+
+.card-list li {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.card-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-dark);
+}
+
+.deco-tree {
+    position: absolute;
+    bottom: -50px;
+    right: -2%;
+    height: 80%;
+    max-height: 750px;
+    width: auto;
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: 1;
+    pointer-events: none;
+    clip-path: inset(0 0 50px 0);
+}
