@@ -25,3 +25,6 @@ dist-ssr
 
 # Large video files
 *.mp4
+
+# Large image files
+public/assets/bottomBg.png
