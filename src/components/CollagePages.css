@@ -10,13 +10,158 @@
 }
 
 .collage-page-1 {
-    background-color: #D4E6F1;
-    /* Light Blue */
+    background-color: var(--color-bg-cream);
+    background-image: radial-gradient(#e0e0d0 1px, transparent 1px);
+    background-size: 20px 20px;
+    /* Theme Color with Dot Pattern */
+    padding-left: 0;
+    /* Remove left padding to let image touch the edge */
+}
+
+/* Make CollagePage1 image stick to the left */
+.collage-page-1 .collage-content {
+    max-width: 100%;
+    padding-left: 0;
+}
+
+.collage-page-1 .collage-img-block {
+    justify-content: flex-start;
+}
+
+.collage-page-1 .collage-main-img {
+    margin-left: -5px;
+    /* Move slightly left */
+}
+
+.collage-page-1 .collage-text-block {
+    padding-right: 10%;
+    /* Add some padding to text */
+}
+
+/* Hello Design Styles */
+.hello-design {
+    padding-left: 40px;
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+}
+
+.hello-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.hello-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 10rem;
+    font-weight: bold;
+    color: #6495ED;
+    /* Cornflower Blue */
+    line-height: 1.1;
+    /* Increased line height slightly */
+    margin: 0;
+    letter-spacing: -5px;
+    padding-right: 30px;
+    /* Prevent cutting off the last letter */
+    display: inline-block;
+    /* Ensure padding works */
+    /* Create fog effect at the bottom */
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+    mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+}
+
+.hello-flower {
+    position: absolute;
+    top: 15%;
+    right: -25px;
+    width: 60px;
+    height: auto;
+    z-index: 5;
+    transform: rotate(15deg);
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+/* Additional fog layer for stronger effect */
+.hello-fog {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(249, 248, 232, 0) 0%, var(--color-bg-cream) 80%);
+    pointer-events: none;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+}
+
+.info-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: baseline;
+}
+
+.info-label {
+    font-family: 'Arial', sans-serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #000;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.8rem;
+    color: #000;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.highlight-red {
+    color: #D93025;
+    font-style: italic;
+    font-weight: 600;
 }
 
 .collage-page-2 {
-    background-color: #FFD700;
-    /* Sunny Yellow */
+    background-color: var(--color-bg-cream);
+    background-image: radial-gradient(#e0e0d0 1px, transparent 1px);
+    background-size: 20px 20px;
+    /* Theme Color with Dot Pattern */
+    padding-right: 0;
+    /* Remove right padding to let image touch the edge */
+    overflow: visible;
+    /* Allow footprint to show */
+    z-index: 10;
+    /* Ensure it's above page 1 if needed */
+}
+
+/* Make CollagePage2 image stick to the right */
+.collage-page-2 .collage-content {
+    max-width: 100%;
+    padding-right: 0;
+}
+
+.collage-page-2 .collage-img-block {
+    justify-content: flex-end;
+}
+
+.collage-page-2 .collage-main-img {
+    margin-right: -50px;
+    /* Move slightly right */
+    margin-top: -50px;
+    /* Move slightly up */
+}
+
+.collage-page-2 .collage-text-block {
+    padding-left: 10%;
+    /* Add some padding to text since we removed container constraint */
 }
 
 .collage-page-3 {
@@ -123,4 +268,74 @@
     .collage-text-block {
         margin-bottom: 40px;
     }
+}
+
+/* Concept Design Styles for CollagePage2 */
+.concept-design {
+    font-family: 'Arial', sans-serif;
+    text-align: left;
+}
+
+.concept-header {
+    margin-bottom: 40px;
+}
+
+.concept-title {
+    font-size: 2.5rem;
+    color: #C0392B;
+    /* Deep Red */
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 2px;
+}
+
+.concept-dot {
+    font-size: 1.5rem;
+    color: #C0392B;
+    vertical-align: middle;
+}
+
+.concept-subtitle {
+    font-size: 1.5rem;
+    color: #E67E22;
+    /* Orange/Salmon */
+    font-weight: 300;
+    margin: 10px 0 0 0;
+    letter-spacing: 1px;
+    font-family: 'Arial', sans-serif;
+}
+
+.concept-body {
+    color: #5DADE2;
+    /* Light Blue */
+    font-size: 1rem;
+    line-height: 2;
+    max-width: 90%;
+}
+
+.concept-text-cn {
+    margin-bottom: 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.concept-text-en {
+    font-weight: 300;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-family: 'Arial', sans-serif;
+}
+
+.footprint-decoration {
+    position: absolute;
+    top: -150px;
+    left: 35%;
+    width: 250px;
+    height: auto;
+    z-index: 1;
+    opacity: 0.8;
+    transform: rotate(-10deg);
 }

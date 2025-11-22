@@ -11,10 +11,6 @@ const MottoSection = () => {
                     WILL NEVER REPLACE FREEDOM FOR US"
                 </h2>
             </div>
-
-            {/* Decorative leaves */}
-            <img src="/assets/leaf.png" alt="" className="motto-leaf-top-right" />
-            <img src="/assets/leaf.png" alt="" className="motto-leaf-bottom-left" />
         </section>
     );
 };

@@ -5,16 +5,31 @@
     align-items: flex-start;
     justify-content: center;
     position: relative;
+    padding: 120px 20px 80px;
+}
+
+/* 背景图片层 - 覆盖在文字上方 */
+.agency-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('/assets/bottomBg.png');
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: 100% 85%;
-    padding: 120px 20px 80px;
+    z-index: 10;
+    /* 确保在文字上方 */
+    pointer-events: none;
+    /* 允许点击穿透 */
 }
 
 .agency-content {
     text-align: center;
-    z-index: 2;
+    z-index: 1;
+    /* 文字在背景下方 */
     position: relative;
     margin-top: 60px;
 }

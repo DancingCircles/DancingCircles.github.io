@@ -6,10 +6,13 @@ import MottoSection from './components/MottoSection';
 import StatsSection from './components/StatsSection';
 import CollagePage1 from './components/CollagePage1';
 import CollagePage2 from './components/CollagePage2';
-import CollagePage3 from './components/CollagePage3';
+
 import AgencySection from './components/AgencySection';
 import BlankPage from './components/BlankPage';
-import InFullBloomSection from './components/InFullBloomSection';
+import EmptyPage from './components/EmptyPage';
+
+
+
 
 function App() {
   return (
@@ -21,11 +24,11 @@ function App() {
         <MottoSection />
         <CollagePage1 />
         <CollagePage2 />
-        <CollagePage3 />
+
         <StatsSection />
         <BlankPage />
+        <EmptyPage />
         <AgencySection />
-        <InFullBloomSection />
       </main>
     </div>
   );

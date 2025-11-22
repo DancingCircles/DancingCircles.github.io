@@ -1,223 +1,239 @@
 .blank-page {
-    background-color: var(--color-bg-cream);
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    /* Side by side layout */
-    align-items: stretch;
-    /* Stretch columns to full height */
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+    background-color: var(--color-bg-cream);
+    /* 恢复主题米色背景 */
     background-image: radial-gradient(#e0e0d0 1px, transparent 1px);
+    /* 恢复点状纹理 */
     background-size: 20px 20px;
-    padding: 4rem;
-}
-
-.left-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-right: 2rem;
-    z-index: 5;
-}
-
-.right-column {
-    flex: 1.2;
-    /* Give video slightly more space */
-    display: flex;
-    justify-content: flex-end;
-    /* Align to right */
-    align-items: flex-end;
-    /* Align to bottom */
-    z-index: 2;
-    padding-bottom: 2rem;
-    /* Add some spacing from bottom */
-}
-
-.text-container {
-    max-width: 500px;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-}
-
-.text-container h2 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    color: var(--color-text-dark);
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-}
-
-.text-container p {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--color-text-dark);
-    opacity: 0.8;
-}
-
-.scrapbook-item {
-    /* Removed white background and padding */
-    transform: rotate(-2deg);
-    position: relative;
-    max-width: 650px;
-    /* Reduced from 900px */
-    width: 100%;
-    transition: transform 0.3s ease;
-    display: flex;
-    align-items: flex-end;
-    /* Align text to bottom of video */
-    gap: 1.5rem;
-    /* Increased gap slightly */
-    margin-bottom: 3rem;
-    /* Push down from bottom */
-}
-
-/* Removed hover effect as requested */
-/* .scrapbook-item:hover {
-    transform: rotate(0deg) scale(1.01);
-} */
-
-.decorative-car {
-    width: 450px;
-    /* Slightly larger */
-    height: auto;
-    transform: rotate(-5deg);
-    margin-left: 2rem;
-    margin-top: -120px;
-    /* Pull up to overlap text */
-    position: relative;
-    z-index: 10;
-    /* Ensure it sits on top of text */
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-    transition: transform 0.3s ease;
-}
-
-.decorative-car:hover {
-    transform: rotate(0deg) scale(1.05);
-}
-
-.video-container {
-    position: relative;
-    flex: 1;
-    /* Video takes remaining space */
-    cursor: pointer;
-    /* Apply mask to the container directly */
-    -webkit-mask-image: url('/assets/video-mask.png');
-    mask-image: url('/assets/video-mask.png');
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    /* Fallback shadow/bg if needed, but we want no gaps */
-}
-
-/* Fallback if mask doesn't load or isn't perfect, we can use clip-path for a torn look */
-@supports not (mask-image: url('/assets/video-mask.png')) {
-    .video-container {
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%,
-                0% 95%, 2% 96%, 4% 94%, 6% 96%, 8% 94%, 10% 96%, 12% 94%, 14% 96%, 16% 94%, 18% 96%, 20% 94%,
-                22% 96%, 24% 94%, 26% 96%, 28% 94%, 30% 96%, 32% 94%, 34% 96%, 36% 94%, 38% 96%, 40% 94%,
-                42% 96%, 44% 94%, 46% 96%, 48% 94%, 50% 96%, 52% 94%, 54% 96%, 56% 94%, 58% 96%, 60% 94%,
-                62% 96%, 64% 94%, 66% 96%, 68% 94%, 70% 96%, 72% 94%, 74% 96%, 76% 94%, 78% 96%, 80% 94%,
-                82% 96%, 84% 94%, 86% 96%, 88% 94%, 90% 96%, 92% 94%, 94% 96%, 96% 94%, 98% 96%, 100% 94%);
-    }
-}
-
-.styled-video {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    filter: sepia(10%) contrast(105%);
-}
-
-.play-button-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
+    /* 垂直居中 */
+    padding: 60px 20px;
+    overflow-y: auto;
+    /* 允许滚动 */
 }
 
-.video-container:hover .play-button-overlay {
-    background-color: rgba(0, 0, 0, 0.1);
+.main-card {
+    background-color: transparent;
+    /* 移除蓝色背景 */
+    /* Deep Space Sparkle */
+    width: 100%;
+    max-width: 900px;
+    /* 缩小整体宽度 */
+    border-radius: 0;
+    /* 移除圆角 */
+    /* 更大的圆角 */
+    padding: 0;
+    /* 移除内边距，让内容自然排布 */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: none;
+    position: relative;
+    color: #2F3E30;
+    /* 文字改为深绿色 */
+    overflow: visible;
+    margin: auto;
+    /* 确保居中 */
 }
 
-.play-icon {
-    width: 80px;
-    height: 80px;
-    background-color: rgba(255, 255, 255, 0.8);
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* 顶部对齐 */
+    padding: 0 10px;
+    /* 微调左右内边距 */
+}
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-title {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    /* 粗体无衬线 */
+    font-size: 7rem;
+    line-height: 0.8;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.sub-title {
+    font-family: "Times New Roman", serif;
+    /* 衬线体 */
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #000;
+    font-weight: normal;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.card-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    /* 与标题底部对齐 */
+}
+
+.arrow-icon {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    /* 深色边框 */
+    /* 更细、半透明的边框 */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color-accent-brown);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #000;
+    /* 深色图标 */
 }
 
-.video-container:hover .play-icon {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.95);
+.arrow-icon:hover {
+    transform: translateX(5px);
+    background-color: #000;
+    color: #fff;
 }
 
-.texture-overlay {
+/* 视频区域 */
+.video-display-area {
+    width: 100%;
+    height: auto;
+    /* 自适应高度 */
+    aspect-ratio: 21/9;
+    /* 电影级宽银幕比例 */
+    background-color: #000;
+    border-radius: 30px;
+    /* 统一大圆角 */
+    overflow: visible;
+    /* 允许车溢出 */
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    /* 给视频加一点阴影，因为它现在独立了 */
+    /* 移除阴影 */
+    /* 增加立体感 */
+    pointer-events: auto;
+    /* 确保接收点击 */
+}
+
+.content-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    display: block;
+}
+
+/* 车 - 右上角装饰 */
+.car-badge {
+    position: absolute;
+    top: -60px;
+    /* 调整位置 */
+    right: -30px;
+    width: 220px;
+    /* 缩小 */
+    height: auto;
+    z-index: 10;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    transform: rotate(-5deg);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* 弹性动画 */
+}
+
+.car-badge:hover {
+    transform: rotate(0deg) scale(1.1) translateY(-10px);
+}
+
+.play-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjY2MiLz4KPC9zdmc+');
-    opacity: 0.1;
-    pointer-events: none;
-    mix-blend-mode: multiply;
-}
-
-.handwritten-note {
-    margin-top: 0;
-    text-align: center;
-    color: var(--color-text-dark);
-    /* Add text shadow to make it pop without the white card */
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    letter-spacing: 0.1em;
-    padding-right: 0;
+    border-radius: 30px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    padding-bottom: 10px;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    /* 更淡的遮罩 */
+    transition: opacity 0.3s;
+    z-index: 5;
+    pointer-events: none;
+    /* 关键：让点击穿透到 video-display-area */
 }
 
-.handwritten-note h3 {
-    font-family: var(--font-subheading);
-    /* Using Playfair Display as a proxy for handwriting if no script font */
-    font-style: normal;
-    /* Italic looks weird upright */
-    font-weight: 400;
+.play-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.play-icon {
+    font-size: 4rem;
+    color: #fff;
+    opacity: 0.9;
+    backdrop-filter: blur(5px);
+    /* 毛玻璃效果 */
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-footer {
+    display: none;
+}
+
+.brand-text {
+    font-family: var(--font-heading);
     font-size: 1.5rem;
-    /* Reduced from 2.5rem */
-    margin-bottom: 0;
-    margin-left: 8px;
-    /* Space between title and subtitle */
-    text-transform: uppercase;
-    /* Uppercase looks better for upright vertical */
+    color: rgba(251, 246, 233, 0.5);
+    /* 浅色半透明文字 */
+    font-weight: bold;
 }
 
-.handwritten-note p {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    /* Reduced from 1rem */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.8;
+@media (max-width: 768px) {
+    .blank-page {
+        padding: 20px;
+    }
+
+    .main-card {
+        padding: 30px;
+        border-radius: 20px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .card-title {
+        font-size: 3rem;
+    }
+
+    .video-display-area {
+        height: 300px;
+    }
+
+    .car-badge {
+        width: 120px;
+        top: -20px;
+        right: -10px;
+    }
 }

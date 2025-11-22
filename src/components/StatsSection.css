@@ -1,17 +1,23 @@
 .stats-section {
     position: relative;
-    background-color: #FFD700;
-    /* Sunny Yellow */
-    height: 150px;
-    /* Fixed height for the transition band */
+    background-color: transparent;
+    height: 2px;
+    /* Just the cutting line height */
     padding: 0;
-    color: #2F3E30;
-    overflow: hidden;
-    clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
-    /* Diagonal cut */
+    overflow: visible;
     margin-bottom: -5vw;
     margin-top: -5vw;
-    /* Negative margin to overlap */
     z-index: 5;
-    /* Ensure it sits on top */
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2F3E30;
+    transform: skewY(-2deg);
+    transform-origin: left;
 }
