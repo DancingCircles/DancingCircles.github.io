@@ -1,54 +1,198 @@
 .agency-section {
     background-color: var(--color-bg-cream);
     min-height: 100vh;
+    height: 100vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     position: relative;
-    padding: 120px 20px 80px;
+    padding: 120px 0 80px;
+    border-radius: 50px 50px 0 0;
+    overflow: hidden;
 }
 
-/* 背景图片层 - 覆盖在文字上方 */
-.agency-section::after {
-    content: '';
+/* 背景图片层 */
+.agency-bg-image {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
-    background-image: url('/assets/bottomBg.png');
+    background-image: url('/assets/bottomBg.webp');
     background-position: bottom center;
     background-repeat: no-repeat;
-    background-size: 100% 85%;
+    background-size: cover;
     z-index: 10;
-    /* 确保在文字上方 */
     pointer-events: none;
-    /* 允许点击穿透 */
+}
+
+
+.agency-content-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    /* Preserve 3D transforms */
+    will-change: transform;
+    z-index: 15;
 }
 
 .agency-content {
     text-align: center;
     z-index: 1;
-    /* 文字在背景下方 */
-    position: relative;
-    margin-top: 60px;
+    position: absolute;
+    width: 100%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contact-content {
+    opacity: 0;
+    /* Initial state handled by GSAP, but good for fallback */
 }
 
 .agency-title {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
-    color: #B8342C;
-    line-height: 1.3;
+    font-size: 5rem;
+    color: #2F3E30;
+    line-height: 1.2;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.agency-role {
+    font-family: var(--font-body);
+    font-size: 1.8rem;
+    color: #FF4500;
     font-weight: 700;
     letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.agency-status {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 60px;
+    font-weight: 400;
 }
 
 .agency-subtitle {
     font-family: var(--font-body);
+    font-size: 1.5rem;
+    color: #2F3E30;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.contact-block {
+    margin-bottom: 50px;
+}
+
+.contact-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: #2F3E30;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.contact-info {
+    font-family: var(--font-body);
     font-size: 1.1rem;
-    color: #C17B5A;
+    color: #2F3E30;
+    line-height: 1.8;
+}
+
+.contact-info a {
+    color: #2F3E30;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #FF4500;
+}
+
+.expertise-block {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid #2F3E30;
+}
+
+.expertise-text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #666;
     line-height: 1.8;
     font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* GitHub Corner Styles */
+.github-corner {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    z-index: 100;
+    cursor: pointer;
+    font-family: var(--font-body, sans-serif);
+}
+
+.github-text {
+    font-size: 1.2rem;
+    color: #2F3E30;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.github-text:hover {
+    color: #FF4500;
+}
+
+.github-icon {
+    fill: #2F3E30;
+    transition: fill 0.3s ease;
+}
+
+.github-icon:hover {
+    fill: #FF4500;
+}
+
+@media (max-width: 768px) {
+    .agency-title {
+        font-size: 3rem;
+    }
+
+    .agency-role {
+        font-size: 1.3rem;
+    }
+
+    .agency-status {
+        font-size: 0.9rem;
+    }
+
+    .contact-title {
+        font-size: 1.1rem;
+    }
+
+    .contact-info,
+    .expertise-text {
+        font-size: 0.95rem;
+    }
+
+    .github-corner {
+        top: 20px;
+        left: 20px;
+    }
 }

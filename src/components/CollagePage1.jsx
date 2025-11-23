@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollReveal from './ScrollReveal';
 import './CollagePages.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CollagePage1 = () => {
     const ball1Ref = useRef(null);
@@ -9,8 +13,26 @@ const CollagePage1 = () => {
     const ball2Ref = useRef(null);
     const shadow2Ref = useRef(null);
     const svg2Ref = useRef(null);
+    const helloTitleRef = useRef(null);
+    const sectionRef = useRef(null);
 
     useEffect(() => {
+        // ScrollTrigger for page overlay effect (works in both directions)
+        if (sectionRef.current) {
+            gsap.fromTo(sectionRef.current, 
+                { y: 100 },
+                {
+                    y: 0,
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top bottom",
+                        end: "top top",
+                        scrub: 1,
+                    },
+                    ease: "none"
+                }
+            );
+        }
         // Animate first ball (top-left area)
         if (svg1Ref.current && ball1Ref.current && shadow1Ref.current) {
             gsap.set(svg1Ref.current, { opacity: 1 });
@@ -72,31 +94,52 @@ const CollagePage1 = () => {
                 transformOrigin: "center"
             });
         }
+
+        // Animate "hello!" letters with ScrollTrigger
+        if (helloTitleRef.current) {
+            const letters = helloTitleRef.current.querySelectorAll('.hello-letter');
+
+            gsap.fromTo(letters,
+                {
+                    x: 300,
+                    opacity: 0,
+                    scale: 0.5,
+                    rotation: 45
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    scale: 1,
+                    rotation: 0,
+                    duration: 0.8,
+                    ease: "back.out(2)",
+                    stagger: 0.08,
+                    scrollTrigger: {
+                        trigger: helloTitleRef.current,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        }
     }, []);
 
     return (
-        <section className="collage-page collage-page-1">
-            <div className="cp-number" style={{ top: '10%', left: '5%' }}>01</div>
-
+        <section id="collage1" ref={sectionRef} className="collage-page collage-page-1">
             <div className="collage-layout-grid">
-                {/* Top Left: Bouncing Ball #1 */}
-                <div className="ball-decoration-area ball-area-1">
-                    <svg ref={svg1Ref} viewBox="0 0 100 200" className="bouncing-ball-svg">
-                        <defs>
-                            <linearGradient id="grad-1" x1="30" y1="0" x2="70" y2="40" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.2" stopColor="#0ae448" />
-                                <stop offset="0.5" stopColor="#abff84" />
-                            </linearGradient>
-                        </defs>
-                        <ellipse ref={shadow1Ref} className="ball-shadow" cx="50" cy="188" rx="15" ry="5" />
-                        <circle ref={ball1Ref} fill="url(#grad-1)" className="ball" cx="50" cy="22" r="15" />
-                    </svg>
-                </div>
+                {/* Top Left: Bouncing Ball #1 Removed */}
 
                 {/* Top: Title + Decoration */}
                 <div className="hello-header-area">
                     <div className="hello-wrapper">
-                        <h1 className="hello-title">hello!</h1>
+                        <h1 className="hello-title" ref={helloTitleRef}>
+                            <span className="hello-letter">h</span>
+                            <span className="hello-letter">e</span>
+                            <span className="hello-letter">l</span>
+                            <span className="hello-letter">l</span>
+                            <span className="hello-letter">o</span>
+                            <span className="hello-letter">!</span>
+                        </h1>
                         <img
                             src="/assets/Generated Image November 19, 2025 - 10_56PM (2).png"
                             alt="Flower decoration"
@@ -116,22 +159,46 @@ const CollagePage1 = () => {
                     <div className="info-list">
                         <div className="info-item">
                             <span className="info-label">NAME:</span>
-                            <span className="info-value">Jane Doe</span>
+                            <ScrollReveal
+                                containerClassName="info-value-reveal"
+                                textClassName="info-value"
+                            >
+                                X OBERON
+                            </ScrollReveal>
                         </div>
                         <div className="info-item">
                             <span className="info-label">AGE:</span>
-                            <span className="info-value">15</span>
+                            <ScrollReveal
+                                containerClassName="info-value-reveal"
+                                textClassName="info-value"
+                            >
+                                SECRET
+                            </ScrollReveal>
+                        </div>
+                        <div className="info-item">
+                            <span className="info-label">STATUS:</span>
+                            <ScrollReveal
+                                containerClassName="info-value-reveal"
+                                textClassName="info-value"
+                            >
+                                Fresh Graduate
+                            </ScrollReveal>
                         </div>
                         <div className="info-item">
                             <span className="info-label">CURRENTLY:</span>
                             <span className="info-value">
-                                Romanticizing<br />
-                                student life <span className="highlight-red">(and<br />mildly spiraling)</span>
+                                <span className="highlight-red">Romanticizing</span><br />
+                                student life, design
                             </span>
                         </div>
                         <div className="info-item">
                             <span className="info-label">LIFE GOAL:</span>
-                            <span className="info-value">Be iconic...</span>
+                            <ScrollReveal
+                                containerClassName="info-value-reveal"
+                                textClassName="info-value"
+                            >
+                                DO BETTER
+                            </ScrollReveal>
                         </div>
                     </div>
                 </div>

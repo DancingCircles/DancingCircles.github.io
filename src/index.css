@@ -20,6 +20,41 @@ body {
   background-color: var(--color-bg-cream);
   color: var(--color-text-dark);
   overflow-x: hidden;
+  cursor: none;
+}
+
+/* 隐藏所有元素的默认光标 */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+/* 隐藏默认滚动条 */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 隐藏所有元素的滚动条 */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.smooth-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.smooth-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 a {
@@ -35,4 +70,59 @@ ul {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* 自定义光标 */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #A8D08D;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+}
+
+/* 自定义绿色圆柱滚动条 */
+.custom-scrollbar {
+  position: fixed;
+  right: 8px;
+  top: 0;
+  width: 8px;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.custom-scrollbar-track {
+  display: none;
+}
+
+.custom-scrollbar-thumb {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 8px;
+  height: 80px;
+  background: #88A550;
+  border-radius: 4px;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.custom-scrollbar-thumb:hover {
+  opacity: 0.8;
+}
+
+.custom-scrollbar-thumb:active {
+  opacity: 0.9;
 }

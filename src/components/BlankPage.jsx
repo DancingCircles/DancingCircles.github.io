@@ -1,10 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollReveal from './ScrollReveal';
 import './BlankPage.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const BlankPage = () => {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [hasIntroShown, setHasIntroShown] = useState(false);
+    const [showIntroHint, setShowIntroHint] = useState(false);
 
     const ballLeftRef = useRef(null);
     const shadowLeftRef = useRef(null);
@@ -12,6 +18,7 @@ const BlankPage = () => {
     const ballRightRef = useRef(null);
     const shadowRightRef = useRef(null);
     const svgRightRef = useRef(null);
+    const typographyRef = useRef(null);
 
     const togglePlay = () => {
         if (videoRef.current) {
@@ -19,6 +26,14 @@ const BlankPage = () => {
                 videoRef.current.pause();
             } else {
                 videoRef.current.play();
+                if (!hasIntroShown) {
+                    setShowIntroHint(true);
+                    setHasIntroShown(true);
+                    // 8秒后自动隐藏提示
+                    setTimeout(() => {
+                        setShowIntroHint(false);
+                    }, 8000);
+                }
             }
             setIsPlaying(!isPlaying);
         }
@@ -86,23 +101,39 @@ const BlankPage = () => {
                 transformOrigin: "center"
             });
         }
+
+        // Animate typography letters from left
+        if (typographyRef.current) {
+            const letters = typographyRef.current.querySelectorAll('[class^="letter-"], .space-span');
+
+            gsap.fromTo(letters,
+                {
+                    x: -300,
+                    opacity: 0,
+                    scale: 0.5,
+                    rotation: -45
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    scale: 1,
+                    rotation: 0,
+                    duration: 0.8,
+                    ease: "back.out(2)",
+                    stagger: 0.05,
+                    scrollTrigger: {
+                        trigger: typographyRef.current,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        }
     }, []);
 
     return (
         <section className="blank-page">
-            {/* Left Inverted Bouncing Ball */}
-            <div className="ball-decoration-video ball-video-left">
-                <svg ref={svgLeftRef} viewBox="0 0 100 200" className="bouncing-ball-svg-inverted">
-                    <defs>
-                        <linearGradient id="grad-video-left" x1="30" y1="0" x2="70" y2="40" gradientUnits="userSpaceOnUse">
-                            <stop offset="0.2" stopColor="#ff6b6b" />
-                            <stop offset="0.5" stopColor="#ffd166" />
-                        </linearGradient>
-                    </defs>
-                    <ellipse ref={shadowLeftRef} className="ball-shadow" cx="50" cy="188" rx="15" ry="5" />
-                    <circle ref={ballLeftRef} fill="url(#grad-video-left)" className="ball" cx="50" cy="22" r="15" />
-                </svg>
-            </div>
+            {/* Left Inverted Bouncing Ball Removed */}
 
             {/* Right Inverted Bouncing Ball */}
             <div className="ball-decoration-video ball-video-right">
@@ -123,7 +154,7 @@ const BlankPage = () => {
                 <div className="card-header">
                     <div className="title-container">
                         {/* 移除 Transforma: 标题，只保留艺术字 */}
-                        <div className="typography-art">
+                        <div className="typography-art" ref={typographyRef}>
                             <div className="line-1">
                                 <span className="letter-w">W</span>
                                 <span className="letter-h">h</span>
@@ -167,18 +198,32 @@ const BlankPage = () => {
                         <div className="play-icon">▶</div>
                     </div>
 
+                    {/* 前奏提示 */}
+                    <div className={`intro-hint ${showIntroHint ? 'visible' : ''}`}>
+                        <p className="hint-en">Don't worry, this is the intro~</p>
+                        <p className="hint-cn">不用担心，这是前奏哦~</p>
+                    </div>
+
                     {/* 车 - 右上角装饰 */}
                     <img src="/assets/whiteferrari.png" alt="White Ferrari" className="car-badge" />
                 </div>
 
                 {/* 底部说明文字 */}
-                <p className="video-caption">
+                <ScrollReveal
+                    containerClassName="video-caption-reveal"
+                    textClassName="video-caption"
+                >
                     "This is a devio I really like, hope you like it too."
-                </p>
+                </ScrollReveal>
 
                 {/* 底部 Logo 或 标语 */}
                 <div className="card-footer">
-                    <span className="brand-text">Hawaii Travel</span>
+                    <ScrollReveal
+                        containerClassName="brand-text-reveal"
+                        textClassName="brand-text"
+                    >
+                        Hawaii Travel
+                    </ScrollReveal>
                 </div>
             </div>
         </section>

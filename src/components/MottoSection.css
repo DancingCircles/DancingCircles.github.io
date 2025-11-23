@@ -1,16 +1,32 @@
 .motto-section {
     position: relative;
     height: 100vh;
-    background-image: url('/assets/bg.png');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
     background-color: var(--color-bg-cream);
     /* Fallback/blend */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 15vh;
+    border-radius: 0;
+    overflow: hidden;
+    perspective: 1500px;
+    /* Enable 3D space */
+    transform-style: preserve-3d;
+}
+
+.motto-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-image: url('/assets/bg.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    transform-style: preserve-3d;
+    will-change: transform;
+    z-index: 0;
 }
 
 .motto-content {
@@ -18,6 +34,10 @@
     z-index: 2;
     max-width: 900px;
     padding: 0 20px;
+    transform-style: preserve-3d;
+    /* Preserve 3D transforms */
+    will-change: transform;
+    transition: transform 0.5s ease-out;
 }
 
 .motto-label {
@@ -35,6 +55,10 @@
     color: var(--color-text-dark);
     line-height: 1.4;
     text-transform: uppercase;
+}
+
+.motto-quote-line {
+    display: block;
 }
 
 .motto-leaf-top-right {

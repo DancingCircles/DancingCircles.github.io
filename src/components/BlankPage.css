@@ -353,6 +353,43 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* 前奏提示 */
+.intro-hint {
+    position: absolute;
+    top: -50px;
+    /* 位于视频上方，不遮挡 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1;
+    /* 低于视频层级 */
+    text-align: center;
+}
+
+.intro-hint.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hint-en {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #999;
+    margin: 0 0 5px 0;
+    font-weight: 400;
+}
+
+.hint-cn {
+    font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+    font-size: 1.1rem;
+    color: #888;
+    margin: 0;
+    font-weight: 400;
+}
+
 .card-footer {
     display: none;
 }
@@ -460,4 +497,29 @@
 .bouncing-ball-svg-inverted .ball-shadow {
     opacity: 0.6;
     fill: #333;
+}
+/* ScrollReveal Customizations for BlankPage */
+.video-caption-reveal,
+.brand-text-reveal {
+    display: inline-block;
+    margin: 0;
+}
+
+.video-caption-reveal .scroll-reveal-text,
+.brand-text-reveal .scroll-reveal-text {
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    line-height: inherit;
+}
+
+.video-caption-reveal {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 15px;
+    margin-right: 5%;
 }

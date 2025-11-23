@@ -1,0 +1,92 @@
+export const faqs = [
+    {
+        question: "How can I",
+        type: "contact you?",
+        answer: "Email me at",
+        detail: "xoberon@foxmail.com",
+    },
+    {
+        question: "What technologies",
+        type: "do you use?",
+        answer: "Golang backend",
+        detail: "& Frontend design",
+    },
+    {
+        question: "What powers",
+        type: "this site?",
+        answer: "HTML5, CSS3, GSAP",
+        detail: "& Vite",
+    },
+    {
+        question: "AI tools",
+        type: "used here?",
+        answer: "Cursor Antigravity",
+        detail: "& Claude Gemini",
+    },
+    {
+        question: "What services",
+        type: "do you offer?",
+        answer: "Elegant code",
+        detail: "& Beautiful design",
+    },
+    {
+        question: "Your design",
+        type: "philosophy?",
+        answer: "Clarity over",
+        detail: "complexity",
+    },
+    {
+        question: "Currently",
+        type: "working on?",
+        answer: "Learning & growing",
+        detail: "Backend systems",
+    },
+    {
+        question: "Where are",
+        type: "you based?",
+        answer: "College student",
+        detail: "Continuous learner",
+    },
+    {
+        question: "What frameworks",
+        type: "do you prefer?",
+        answer: "React & GSAP",
+        detail: "for animations",
+    },
+    {
+        question: "Why Golang",
+        type: "specifically?",
+        answer: "Performance & simplicity",
+        detail: "Perfect balance",
+    },
+    {
+        question: "Open to",
+        type: "collaboration?",
+        answer: "Always interested",
+        detail: "in new projects",
+    },
+    {
+        question: "Favorite design",
+        type: "principle?",
+        answer: "Less is",
+        detail: "always more",
+    },
+    {
+        question: "How long have",
+        type: "you been coding?",
+        answer: "Continuously learning",
+        detail: "since college",
+    },
+    {
+        question: "Your coding",
+        type: "style?",
+        answer: "Clean & readable",
+        detail: "code matters",
+    },
+    {
+        question: "Future",
+        type: "goals?",
+        answer: "Build meaningful",
+        detail: "digital experiences",
+    },
+];

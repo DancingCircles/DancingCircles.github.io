@@ -1,0 +1,36 @@
+.scroll-reveal {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    line-height: inherit !important;
+    color: inherit !important;
+    font-weight: inherit !important;
+    text-transform: inherit !important;
+    letter-spacing: inherit !important;
+}
+
+.scroll-reveal-text {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    line-height: inherit !important;
+    color: inherit !important;
+    font-weight: inherit !important;
+    text-transform: inherit !important;
+    letter-spacing: inherit !important;
+}
+
+.scroll-reveal .word-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.scroll-reveal .word {
+    display: inline-block;
+    will-change: transform, opacity;
+}

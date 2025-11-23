@@ -1,95 +1,76 @@
 .header {
     position: fixed;
-    top: 16px;
-    right: 40px;
-    left: auto;
-    width: auto;
+    top: 0;
+    right: -100%;
+    width: 100%;
     z-index: 1000;
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s, right 0.5s ease;
-    padding: 0;
+    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    padding: 40px 40px;
+    background: transparent;
 }
 
 .header.hidden {
-    transform: translateX(150%);
+    right: -100%;
     opacity: 0;
     pointer-events: none;
 }
 
 .header.visible {
-    transform: translateX(0);
+    right: 0;
     opacity: 1;
 }
 
-.header.centered {
-    right: 50%;
-    transform: translateX(50%);
+.nav {
+    width: 100%;
 }
 
-.header.centered.hidden {
-    transform: translateX(150%);
-}
-
-/* Unified Container Style - Rectangular */
 .nav-list {
     display: flex;
-    flex-direction: row;
-    gap: 5px;
-    padding: 6px;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
     margin: 0;
-    width: auto;
-    max-width: none;
-
-    /* Clean look without shadow */
-    background-color: var(--color-bg-cream, #FDFCF5);
-    border: 2px solid #2F3E30;
-    border-radius: 8px;
+    width: 100%;
+    background: transparent;
+    border: none;
 }
 
 .nav-item {
     display: block;
-    height: auto;
 }
 
-/* Clean Link Style */
 .nav-link {
-    display: block;
-    padding: 10px 20px;
-    border-radius: 6px;
-    border: none;
-    font-family: 'Arial', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #FF3300;
+    /* Red color from design */
     text-decoration: none;
-    color: #2F3E30;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: transparent;
+    padding: 8px 14px;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
-/* Hover Effects - Red */
 .nav-link:hover {
-    background-color: #FF4500;
-    color: #fff;
+    color: #ffffff;
+    background: #FF3300;
+    border-radius: 4px;
+    transform: translateY(-2px);
 }
 
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .header {
-        top: 20px;
-        right: 10px;
-        left: 10px;
-        width: auto;
-        overflow-x: auto;
-        justify-content: center;
-    }
-
-    .nav-list {
-        padding: 4px;
+        padding: 15px 20px;
     }
 
     .nav-link {
-        padding: 8px 12px;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
     }
 }

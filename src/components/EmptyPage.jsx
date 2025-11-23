@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { awards } from '../data/awards';
+import { faqs } from '../data/faqs';
 import './EmptyPage.css';
 
 const POSITIONS = {
@@ -53,11 +53,11 @@ const EmptyPage = () => {
     };
 
     return (
-        <section className="empty-page">
+        <section id="faq" className="empty-page">
             <div className="awards-section">
-                <p className="awards-title">Recognition and Awards</p>
+                <p className="awards-title">Frequently Asked Questions</p>
                 <div className="awards-list" ref={awardsListRef}>
-                    {awards.map((award, index) => (
+                    {faqs.map((faq, index) => (
                         <div
                             key={index}
                             className="award"
@@ -66,16 +66,16 @@ const EmptyPage = () => {
                         >
                             <div className="award-wrapper">
                                 <div className="award-name">
-                                    <h1>{award.name}</h1>
-                                    <h1>{award.type}</h1>
+                                    <h1>{faq.question}</h1>
+                                    <h1>{faq.type}</h1>
                                 </div>
                                 <div className="award-project">
-                                    <h1>{award.project}</h1>
-                                    <h1>{award.label}</h1>
+                                    <h1>{faq.answer}</h1>
+                                    <h1>{faq.detail}</h1>
                                 </div>
                                 <div className="award-name">
-                                    <h1>{award.name}</h1>
-                                    <h1>{award.type}</h1>
+                                    <h1>{faq.question}</h1>
+                                    <h1>{faq.type}</h1>
                                 </div>
                             </div>
                         </div>

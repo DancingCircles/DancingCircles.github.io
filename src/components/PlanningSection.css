@@ -9,47 +9,59 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-bg-cream);
-    background-image: radial-gradient(#c8c8b8 1px, transparent 1px);
-    background-size: 20px 20px;
     color: #141414;
     overflow: hidden;
 }
 
 .container {
     position: relative;
-    max-width: 1000px;
+    max-width: 1200px;
     text-align: center;
 }
 
 .animated-text {
     position: relative;
-    max-width: 1000px;
+    max-width: 100%;
     text-align: center;
     color: #141414;
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(1.5rem, 3.5vw, 3.5rem);
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.4;
     font-family: 'Host Grotesk', sans-serif;
+}
+
+.line {
+    display: block;
+    white-space: nowrap;
+    margin-bottom: 0.5em;
 }
 
 .text-segment {
     opacity: 0;
+    display: inline;
 }
 
 .placeholder-icon {
-    margin-top: -10px;
     width: 60px;
     height: 60px;
     display: inline-block;
     vertical-align: middle;
     will-change: transform;
     visibility: hidden;
+    margin: 0 10px;
+    position: relative;
+    top: -5px;
 }
 
 @media (max-width: 1000px) {
     .placeholder-icon {
-        margin-top: -4px;
         width: 30px;
         height: 30px;
+        margin: 0 5px;
+        top: -2px;
+    }
+
+    .line {
+        white-space: normal;
     }
 }
