@@ -12,8 +12,6 @@ import BlankPage from './components/BlankPage';
 import EmptyPage from './components/EmptyPage';
 
 
-
-
 function App() {
   return (
     <div className="App">

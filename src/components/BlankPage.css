@@ -1,131 +1,295 @@
 .blank-page {
     min-height: 100vh;
     background-color: var(--color-bg-cream);
-    /* 恢复主题米色背景 */
     background-image: radial-gradient(#e0e0d0 1px, transparent 1px);
-    /* 恢复点状纹理 */
     background-size: 20px 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    /* 垂直居中 */
-    padding: 60px 20px;
-    overflow-y: auto;
-    /* 允许滚动 */
+    align-items: flex-start;
+    padding: 180px 20px 60px;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    position: relative;
 }
 
 .main-card {
     background-color: transparent;
-    /* 移除蓝色背景 */
-    /* Deep Space Sparkle */
     width: 100%;
-    max-width: 900px;
-    /* 缩小整体宽度 */
-    border-radius: 0;
-    /* 移除圆角 */
-    /* 更大的圆角 */
+    max-width: 1600px;
+    /* Increased max-width to allow spread */
     padding: 0;
-    /* 移除内边距，让内容自然排布 */
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    box-shadow: none;
+    display: grid;
+    /* Changed to grid layout */
+    grid-template-columns: 1fr 1fr;
+    /* Two columns */
+    grid-template-rows: auto 1fr;
+    /* Two rows */
+    gap: 0;
+    /* Gap handled by positioning */
     position: relative;
-    color: #2F3E30;
-    /* 文字改为深绿色 */
-    overflow: visible;
     margin: auto;
-    /* 确保居中 */
+    transform: scale(0.9);
+    transform-origin: center top;
+    min-height: 80vh;
 }
 
 .card-header {
+    grid-column: 1;
+    /* Left column */
+    grid-row: 1;
+    /* Top row */
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    /* 顶部对齐 */
-    padding: 0 10px;
-    /* 微调左右内边距 */
+    justify-content: flex-start;
+    width: 100%;
+    z-index: 10;
+    padding-left: 5%;
+    /* Add some padding from edge */
 }
 
-.title-group {
+.title-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-.main-title {
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    /* 粗体无衬线 */
-    font-size: 7rem;
-    line-height: 0.8;
-    text-transform: uppercase;
-    color: #000;
-    margin: 0;
-    letter-spacing: -2px;
-}
-
-.sub-title {
-    font-family: "Times New Roman", serif;
-    /* 衬线体 */
-    font-size: 2.2rem;
-    line-height: 1;
-    color: #000;
-    font-weight: normal;
-    margin: 0;
-    letter-spacing: -1px;
-}
-
-.card-subtitle {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: 10px;
-    /* 与标题底部对齐 */
-}
-
-.arrow-icon {
-    width: 50px;
-    height: 50px;
-    border: 2px solid #000;
-    /* 深色边框 */
-    /* 更细、半透明的边框 */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    color: #000;
-    /* 深色图标 */
-}
-
-.arrow-icon:hover {
-    transform: translateX(5px);
-    background-color: #000;
-    color: #fff;
-}
-
-/* 视频区域 */
-.video-display-area {
+    align-items: flex-start;
     width: 100%;
+}
+
+/* Typography Art Construction */
+.typography-art {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Left align lines */
+    width: 100%;
+    line-height: 1;
+    padding-top: 20px;
+}
+
+.typography-art>div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    /* Left align content */
+    position: relative;
     height: auto;
-    /* 自适应高度 */
+    margin-bottom: 10px;
+}
+
+/* Video Area */
+.video-display-area {
+    grid-column: 2;
+    /* Right column */
+    grid-row: 2;
+    /* Bottom row */
+    justify-self: end;
+    /* Align to right */
+    align-self: end;
+    /* Align to bottom */
+
+    width: 100%;
+    max-width: 800px;
+    /* Limit video width */
+    height: auto;
     aspect-ratio: 21/9;
-    /* 电影级宽银幕比例 */
     background-color: #000;
     border-radius: 30px;
-    /* 统一大圆角 */
     overflow: visible;
-    /* 允许车溢出 */
     position: relative;
     cursor: pointer;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    /* 给视频加一点阴影，因为它现在独立了 */
-    /* 移除阴影 */
-    /* 增加立体感 */
     pointer-events: auto;
-    /* 确保接收点击 */
+    margin-top: 0;
+    margin-right: 5%;
+    /* Add some padding from edge */
+}
+
+.typography-art span[class^="letter-"] {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 7.5rem;
+    /* Increased from 5.5rem */
+    color: #F13C33;
+    text-transform: lowercase;
+    -webkit-text-stroke: 0px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    line-height: 0.9;
+}
+
+/* Space Span */
+.space-span {
+    display: inline-block;
+    width: 25px;
+}
+
+/* ... filled letters ... */
+.letter-w,
+.letter-e,
+.letter-r,
+.letter-e2,
+.letter-p,
+.letter-e3,
+.letter-m,
+.letter-e5,
+.letter-t2,
+.letter-s,
+.letter-m2,
+.letter-g {
+    color: #F13C33;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Specific styling adjustments for the 2-line layout */
+.line-1 {
+    z-index: 2;
+}
+
+.line-2 {
+    z-index: 1;
+}
+
+/* Line 1: Where type */
+.letter-w {
+    font-size: 8.5rem;
+    margin-right: 4px;
+}
+
+/* Increased from 6.5rem */
+.letter-r {
+    margin-left: 0px;
+}
+
+/* Outlined Letters */
+.letter-h,
+.letter-t,
+.letter-y,
+.letter-e4,
+.letter-a,
+.letter-i,
+.letter-c {
+    color: transparent;
+    -webkit-text-stroke: 2px #F13C33;
+    font-weight: 900;
+    z-index: 2;
+}
+
+.letter-h {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    transform: rotate(10deg) translateY(-4px);
+    margin-left: -4px;
+}
+
+.letter-e2 {
+    transform: rotate(-5deg);
+    margin-left: 4px;
+}
+
+.letter-t {
+    font-family: 'Courier New', monospace;
+    -webkit-text-stroke: 2px #F13C33;
+    font-size: 8.5rem;
+    /* Increased from 6.5rem */
+    transform: rotate(-10deg);
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.letter-y {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.letter-p {
+    margin-left: 0px;
+    margin-right: 4px;
+}
+
+.letter-e3 {
+    transform: rotate(5deg);
+    margin-left: 4px;
+}
+
+/* Line 2: meets magic */
+.letter-m {
+    margin-right: 0px;
+}
+
+.letter-e4 {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 2px #F13C33;
+    margin-left: 4px;
+    transform: rotate(-15deg);
+}
+
+.letter-e5 {
+    margin-left: 4px;
+}
+
+.letter-t2 {
+    margin-left: 4px;
+}
+
+.letter-s {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.letter-m2 {
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.letter-a {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 8.5rem;
+    /* Increased from 6.5rem */
+    margin-left: 4px;
+}
+
+.letter-i {
+    font-family: 'Courier New', monospace;
+    margin-left: 4px;
+}
+
+.letter-c {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    transform: rotate(-10deg);
+    margin-left: 4px;
+}
+
+/* Video Area */
+.video-display-area {
+    grid-column: 2;
+    /* Right column */
+    grid-row: 2;
+    /* Bottom row */
+    justify-self: end;
+    /* Align to right */
+    align-self: end;
+    /* Align to bottom */
+
+    width: 100%;
+    max-width: 800px;
+    /* Limit video width */
+    height: auto;
+    aspect-ratio: 21/9;
+    background-color: #000;
+    border-radius: 30px;
+    overflow: visible;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+    margin-top: 0;
+    margin-right: 5%;
+    /* Add some padding from edge */
 }
 
 .content-video {
@@ -136,20 +300,17 @@
     display: block;
 }
 
-/* 车 - 右上角装饰 */
+/* Car decoration */
 .car-badge {
     position: absolute;
     top: -60px;
-    /* 调整位置 */
     right: -30px;
     width: 220px;
-    /* 缩小 */
     height: auto;
     z-index: 10;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
     transform: rotate(-5deg);
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    /* 弹性动画 */
 }
 
 .car-badge:hover {
@@ -167,11 +328,9 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.1);
-    /* 更淡的遮罩 */
     transition: opacity 0.3s;
     z-index: 5;
     pointer-events: none;
-    /* 关键：让点击穿透到 video-display-area */
 }
 
 .play-overlay.hidden {
@@ -184,7 +343,6 @@
     color: #fff;
     opacity: 0.9;
     backdrop-filter: blur(5px);
-    /* 毛玻璃效果 */
     width: 80px;
     height: 80px;
     display: flex;
@@ -199,41 +357,107 @@
     display: none;
 }
 
-.brand-text {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: rgba(251, 246, 233, 0.5);
-    /* 浅色半透明文字 */
-    font-weight: bold;
+.video-caption {
+    grid-column: 2;
+    grid-row: 3;
+    /* Below video */
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #999;
+    text-align: center;
+    /* Align with video */
+    justify-self: end;
+    width: 100%;
+    max-width: 800px;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    margin-right: 5%;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+    .typography-art span[class^="letter-"] {
+        font-size: 4rem;
+    }
+
+    .letter-w,
+    .letter-a,
+    .letter-t {
+        font-size: 5rem;
+    }
 }
 
 @media (max-width: 768px) {
     .blank-page {
-        padding: 20px;
+        padding: 80px 20px;
     }
 
-    .main-card {
-        padding: 30px;
-        border-radius: 20px;
-    }
-
-    .card-header {
+    .typography-art {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
     }
 
-    .card-title {
+    .typography-art>div {
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .typography-art span[class^="letter-"] {
+        font-size: 2.5rem;
+    }
+
+    .letter-w,
+    .letter-a,
+    .letter-t {
         font-size: 3rem;
     }
 
     .video-display-area {
-        height: 300px;
+        aspect-ratio: 16/9;
     }
 
-    .car-badge {
-        width: 120px;
-        top: -20px;
-        right: -10px;
+    .ball-decoration-video {
+        display: none;
     }
+}
+
+/* Inverted Bouncing Ball Decorations for Video Page */
+.ball-decoration-video {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.ball-video-left {
+    right: 6.5%;
+    left: auto;
+    top: 29%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center center;
+    padding: 0;
+}
+
+.ball-video-right {
+    left: 6.5%;
+    right: auto;
+    top: 68%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center center;
+    padding: 0;
+}
+
+.bouncing-ball-svg-inverted {
+    width: 200px;
+    max-height: 400px;
+    opacity: 0;
+}
+
+.bouncing-ball-svg-inverted .ball-shadow {
+    opacity: 0.6;
+    fill: #333;
 }

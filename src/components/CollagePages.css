@@ -14,75 +14,209 @@
     background-image: radial-gradient(#e0e0d0 1px, transparent 1px);
     background-size: 20px 20px;
     /* Theme Color with Dot Pattern */
-    padding-left: 0;
-    /* Remove left padding to let image touch the edge */
+    padding: 40px;
 }
 
-/* Make CollagePage1 image stick to the left */
-.collage-page-1 .collage-content {
-    max-width: 100%;
-    padding-left: 0;
-}
-
-.collage-page-1 .collage-img-block {
-    justify-content: flex-start;
-}
-
-.collage-page-1 .collage-main-img {
-    margin-left: -5px;
-    /* Move slightly left */
-}
-
-.collage-page-1 .collage-text-block {
-    padding-right: 10%;
-    /* Add some padding to text */
-}
-
-/* Hello Design Styles */
-.hello-design {
-    padding-left: 40px;
-    text-align: left;
-    font-family: 'Arial', sans-serif;
-}
-
-.hello-wrapper {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 40px;
+/* Custom Grid Layout for Page 1 */
+.collage-layout-grid {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    /* Left: Image, Text | Right: Header */
+    grid-template-rows: 1fr 1fr;
+    /* Split height */
     width: 100%;
+    max-width: 1600px;
+    gap: 20px;
+    align-items: center;
+    justify-items: start;
+    height: 100%;
 }
 
-.hello-title {
+/* Area 1: Header (Right Top) */
+.hello-header-area {
+    grid-column: 3;
+    /* Right column */
+    grid-row: 1;
+    /* Top row */
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    z-index: 0;
+    transform: scale(1.3);
+    pointer-events: none;
+}
+
+/* Hello Title Styling Override/Enhancement */
+.collage-page-1 .hello-title {
     font-family: 'Arial', sans-serif;
-    font-size: 10rem;
+    font-size: 12rem;
     font-weight: bold;
     color: #6495ED;
-    /* Cornflower Blue */
-    line-height: 1.1;
-    /* Increased line height slightly */
+    line-height: 1;
     margin: 0;
-    letter-spacing: -5px;
-    padding-right: 30px;
-    /* Prevent cutting off the last letter */
-    display: inline-block;
-    /* Ensure padding works */
-    /* Create fog effect at the bottom */
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
-    mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+    letter-spacing: -8px;
+    position: relative;
 }
 
-.hello-flower {
+/* Flower positioning within the wrapper */
+.collage-page-1 .hello-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.collage-page-1 .hello-flower {
     position: absolute;
-    top: 15%;
-    right: -25px;
-    width: 60px;
+    top: 0%;
+    right: -40px;
+    width: 90px;
     height: auto;
     z-index: 5;
     transform: rotate(15deg);
-    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
 }
 
-/* Additional fog layer for stronger effect */
+/* Area 2: Main Image (Left Bottom) */
+.main-image-area {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.collage-page-1 .collage-main-img {
+    width: 500px;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    transform: none;
+    pointer-events: none;
+}
+
+/* Area 3: Info Text (Left Bottom - Right of Image) */
+.info-text-area {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    padding-left: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    transform: scale(1.1);
+    position: relative;
+    z-index: 10;
+    text-align: left;
+}
+
+.collage-page-1 .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* More space between items */
+}
+
+/* Adjust info item grid for better alignment */
+.collage-page-1 .info-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    align-items: baseline;
+}
+
+.collage-page-1 .info-label {
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.collage-page-1 .info-value {
+    font-size: 2rem;
+    /* Larger text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .collage-layout-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 40px;
+    }
+
+    .hello-header-area {
+        grid-column: 1;
+        grid-row: 1;
+        transform: scale(1);
+    }
+
+    .main-image-area {
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: center;
+        padding-right: 0;
+    }
+
+    .info-text-area {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: center;
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .collage-page-1 .collage-main-img {
+        transform: scale(1);
+    }
+
+    .ball-decoration-area {
+        display: none;
+    }
+}
+
+/* Bouncing Ball Decoration Styles */
+.ball-decoration-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.ball-area-1 {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: start;
+    padding-top: 40px;
+    padding-left: 300px;
+}
+
+.ball-area-2 {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: end;
+    align-self: end;
+    padding-bottom: 20px;
+    padding-right: 200px;
+}
+
+.bouncing-ball-svg {
+    width: 150px;
+    max-height: 300px;
+    opacity: 0;
+}
+
+.ball-shadow {
+    opacity: 0.2;
+    fill: #333;
+}
+
+
+/* -----------------------------
+   Existing Styles for Page 2 & 3 
+   (Keeping these intact below, or ensuring no conflict)
+   ----------------------------- */
+
+/* Make CollagePage1 image stick to the left - OVERRIDDEN BY GRID ABOVE, but kept for reference if needed */
+/* ... (rest of the file content) ... */
+
 .hello-fog {
     position: absolute;
     bottom: -10px;
@@ -91,36 +225,6 @@
     height: 50%;
     background: linear-gradient(to bottom, rgba(249, 248, 232, 0) 0%, var(--color-bg-cream) 80%);
     pointer-events: none;
-}
-
-.info-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-left: 20px;
-}
-
-.info-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    align-items: baseline;
-}
-
-.info-label {
-    font-family: 'Arial', sans-serif;
-    font-weight: 900;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    color: #000;
-    letter-spacing: 0.5px;
-}
-
-.info-value {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.8rem;
-    color: #000;
-    line-height: 1.2;
-    font-weight: 400;
 }
 
 .highlight-red {
@@ -157,11 +261,25 @@
     /* Move slightly right */
     margin-top: -50px;
     /* Move slightly up */
+    margin-left: -100px;
+    /* Pull image closer to text from the right */
 }
 
 .collage-page-2 .collage-text-block {
-    padding-left: 10%;
-    /* Add some padding to text since we removed container constraint */
+    padding-left: 0;
+    /* Remove left padding override */
+    margin-right: -40px;
+    /* Negative margin to pull text closer to image */
+    z-index: 5;
+    /* Ensure text is above if they overlap */
+}
+
+/* Make CollagePage2 image stick to the right */
+.collage-page-2 .collage-content {
+    max-width: 100%;
+    padding-right: 0;
+    gap: 0px;
+    /* Remove gap between flex items */
 }
 
 .collage-page-3 {
@@ -179,8 +297,12 @@
 }
 
 .collage-text-block {
-    flex: 1;
-    max-width: 500px;
+    flex: 1.2;
+    /* Allow text block to take more space */
+    max-width: 750px;
+    /* Significantly increased width */
+    padding-right: 20px;
+    /* Reduced padding to get closer to image */
 }
 
 .collage-img-block {
@@ -195,12 +317,13 @@
     max-width: 100%;
     max-height: 80vh;
     object-fit: contain;
-    transition: transform 0.5s ease;
+    /* Remove transition to stop hover animation */
 }
 
-.collage-main-img:hover {
+/* Remove hover effect */
+/*.collage-main-img:hover {
     transform: scale(1.02);
-}
+}*/
 
 /* Typography */
 .cp-subtitle {
@@ -310,21 +433,25 @@
 
 .concept-body {
     color: #5DADE2;
-    /* Light Blue */
-    font-size: 1rem;
-    line-height: 2;
-    max-width: 90%;
+    font-size: 1.5rem;
+    /* Increased from 1.2rem */
+    line-height: 1.6;
+    /* Adjusted line height for larger text */
+    max-width: 100%;
 }
 
 .concept-text-cn {
     margin-bottom: 30px;
     font-weight: 500;
     letter-spacing: 1px;
+    font-size: 1.6rem;
+    /* Explicitly larger for Chinese */
 }
 
 .concept-text-en {
     font-weight: 300;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
+    /* Increased from 0.9rem/1rem base */
     opacity: 0.9;
     font-family: 'Arial', sans-serif;
 }

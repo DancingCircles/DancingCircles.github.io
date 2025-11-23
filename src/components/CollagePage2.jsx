@@ -5,7 +5,7 @@ const CollagePage2 = () => {
     return (
         <section className="collage-page collage-page-2 layout-left">
             {/* <img src="/assets/FootPrint.png" alt="Footprint" className="footprint-decoration" /> */}
-            <div className="cp-number" style={{ bottom: '10%', right: '5%' }}>02</div>
+            {/* <div className="cp-number" style={{ bottom: '10%', right: '5%' }}>02</div> */}
             <div className="collage-content">
                 <div className="collage-text-block concept-design">
                     <div className="concept-header">
