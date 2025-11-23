@@ -1,99 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
 .planning-section {
     position: relative;
-    min-height: 100vh;
-    background-color: var(--color-bg-cream);
-    padding: 80px 0;
+    width: 100vw;
+    height: 100svh;
+    padding: 1.5rem;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-cream);
+    background-image: radial-gradient(#c8c8b8 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #141414;
+    overflow: hidden;
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 40px;
+    position: relative;
+    max-width: 1000px;
+    text-align: center;
 }
 
-.color-cards-container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 100%;
+.animated-text {
+    position: relative;
+    max-width: 1000px;
+    text-align: center;
+    color: #141414;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+    font-family: 'Host Grotesk', sans-serif;
 }
 
-.color-card {
-    padding: 30px 40px;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: transform 0.3s ease;
+.text-segment {
+    opacity: 0;
 }
 
-.color-card:nth-child(odd) {
-    align-self: flex-start;
+.placeholder-icon {
+    margin-top: -10px;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    will-change: transform;
+    visibility: hidden;
 }
 
-.color-card:nth-child(even) {
-    align-self: flex-end;
-}
-
-.color-card:hover {
-    transform: scale(1.02);
-    z-index: 10;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.color-name {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-.color-details {
-    display: flex;
-    justify-content: flex-start;
-    gap: 60px;
-    font-family: var(--font-body);
-}
-
-.color-detail-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.detail-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    opacity: 0.7;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-
-.detail-value {
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-@media (max-width: 768px) {
-    .color-card {
-        width: 100%;
-    }
-
-    .color-card:nth-child(even) {
-        align-self: flex-start;
-    }
-
-    .color-name {
-        font-size: 1.5rem;
-    }
-
-    .color-details {
-        flex-direction: column;
-        gap: 15px;
+@media (max-width: 1000px) {
+    .placeholder-icon {
+        margin-top: -4px;
+        width: 30px;
+        height: 30px;
     }
 }

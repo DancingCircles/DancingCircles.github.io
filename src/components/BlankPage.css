@@ -1,7 +1,7 @@
 .blank-page {
     min-height: 100vh;
     background-color: var(--color-bg-cream);
-    background-image: radial-gradient(#e0e0d0 1px, transparent 1px);
+    background-image: radial-gradient(#c8c8b8 1px, transparent 1px);
     background-size: 20px 20px;
     display: flex;
     justify-content: center;

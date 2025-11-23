@@ -4,28 +4,32 @@ import './HeroSection.css';
 const HeroSection = () => {
     return (
         <section className="hero-section">
-            {/* Leaf Decoration */}
-            <img
-                src="/assets/leaf.png"
-                alt=""
-                className="deco-leaf-top-right"
-            />
+            <div className="hero-container">
+                <div className="hero-image-wrapper">
+                    <img src="/assets/index.png" alt="The Late Checkout" className="hero-bg-image" />
 
-            {/* Main Content */}
-            <div className="hero-content">
-                <h1 className="title-aloha">
-                    <span className="aloha-text">ALOHA</span>
-                </h1>
-                <h2 className="subtitle">E KOMO MAI O HAWAII!</h2>
-            </div>
+                    <div className="hero-overlay-content">
+                        <h1 className="hero-title">
+                            <span className="word-the">the</span>
+                            <span className="word-late">late</span>
+                            <span className="word-checkout">checkout</span>
+                        </h1>
+                        <h2 className="hero-subtitle">STORY-LED TRAVEL PLANNING FOR PEOPLE WHO WANT TO FEEL</h2>
+                    </div>
 
-            {/* Right Side Text */}
-            <div className="hero-right-text">
-                <p className="quote">
-                    "Hawaii...the most charming fleet of islands<br />
-                    that anchored in the middle of the ocean..." Mark Twain
-                </p>
-                {/* <button className="cta-button">CONTACT US</button> */}
+                    <div className="hero-signature">
+                        X OBERON
+                    </div>
+                </div>
+
+                {/* Animated Icons for Planning Section Transition - Outside image wrapper */}
+                <div className="animated-icons-origin">
+                    <div className="animated-icon icon-1"><img src="/assets/1.png" alt="" /></div>
+                    <div className="animated-icon icon-2"><img src="/assets/2.png" alt="" /></div>
+                    <div className="animated-icon icon-3"><img src="/assets/3.png" alt="" /></div>
+                    <div className="animated-icon icon-4"><img src="/assets/4.png" alt="" /></div>
+                    <div className="animated-icon icon-5"><img src="/assets/5.png" alt="" /></div>
+                </div>
             </div>
         </section>
     );
