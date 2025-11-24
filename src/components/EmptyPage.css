@@ -26,6 +26,7 @@
 .award {
     height: 80px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    cursor: pointer;
 }
 
 .award-wrapper {
@@ -33,6 +34,7 @@
     height: 240px;
     will-change: transform;
     transform: translateY(-160px);
+    /* Default position (TOP) */
 }
 
 .award-name,
@@ -43,7 +45,6 @@
     align-items: center;
     height: 80px;
     padding: 5px 20px;
-    cursor: pointer;
     border-bottom: 1px solid #2F3E30;
 }
 

@@ -1,16 +1,24 @@
-# React + Vite
+# Xoberon 个人主页
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这是一个集成了现代前端技术的个人展示空间。它不仅仅是一个静态的博客，更是一个探索交互设计、动画效果和视觉美学的实验场。
 
-Currently, two official plugins are available:
+在这里，我尝试打破常规网页的浏览体验，用代码构建视觉叙事，记录灵感与生活点滴。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 核心特色
 
-## React Compiler
+*   **沉浸式视觉体验**
+    摒弃传统的布局限制，采用全屏滚动与动态背景，营造独特的浏览氛围。
+*   **流畅的交互动画**
+    深度整合 GSAP，让每一个点击、悬停和滚动都充满细腻的反馈感。
+*   **极致性能**
+    基于 Vite 构建，配合 Lenis 平滑滚动，确保丝滑流畅的访问体验。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 技术栈
 
-## Expanding the ESLint configuration
+*   **核心框架**: React 19 + Vite
+*   **动画引擎**: GSAP
+*   **交互优化**: Lenis (Smooth Scroll)
+*   **样式方案**: Vanilla CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+*Designed & Built by Xoberon*
