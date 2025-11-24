@@ -141,7 +141,7 @@ const CollagePage1 = () => {
                             <span className="hello-letter">!</span>
                         </h1>
                         <img
-                            src="/xoberon.github.io/assets/Generated Image November 19, 2025 - 10_56PM (2).png"
+                            src="/assets/Generated Image November 19, 2025 - 10_56PM (2).png"
                             alt="Flower decoration"
                             className="hello-flower"
                         />
@@ -151,7 +151,7 @@ const CollagePage1 = () => {
 
                 {/* Bottom Left: Main Image */}
                 <div className="main-image-area">
-                    <img src="/xoberon.github.io/assets/A1.png" alt="Vintage Art 1" className="collage-main-img" />
+                    <img src="/assets/A1.png" alt="Vintage Art 1" className="collage-main-img" />
                 </div>
 
                 {/* Bottom Right: Info Text */}

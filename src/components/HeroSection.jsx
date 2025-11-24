@@ -75,7 +75,7 @@ const HeroSection = () => {
                 <div className="hero-image-wrapper" ref={imageWrapperRef}>
                     <img
                         ref={imageRef}
-                        src="/xoberon.github.io/assets/index.png"
+                        src="/assets/index.png"
                         alt="The Late Checkout"
                         className="hero-bg-image"
                     />
@@ -106,11 +106,11 @@ const HeroSection = () => {
 
                 {/* Animated Icons for Planning Section Transition - Outside image wrapper */}
                 <div className="animated-icons-origin">
-                    <div className="animated-icon icon-1"><img src="/xoberon.github.io/assets/1.png" alt="" /></div>
-                    <div className="animated-icon icon-2"><img src="/xoberon.github.io/assets/2.png" alt="" /></div>
-                    <div className="animated-icon icon-3"><img src="/xoberon.github.io/assets/3.png" alt="" /></div>
-                    <div className="animated-icon icon-4"><img src="/xoberon.github.io/assets/4.png" alt="" /></div>
-                    <div className="animated-icon icon-5"><img src="/xoberon.github.io/assets/5.png" alt="" /></div>
+                    <div className="animated-icon icon-1"><img src="/assets/1.png" alt="" /></div>
+                    <div className="animated-icon icon-2"><img src="/assets/2.png" alt="" /></div>
+                    <div className="animated-icon icon-3"><img src="/assets/3.png" alt="" /></div>
+                    <div className="animated-icon icon-4"><img src="/assets/4.png" alt="" /></div>
+                    <div className="animated-icon icon-5"><img src="/assets/5.png" alt="" /></div>
                 </div>
             </div>
         </section>

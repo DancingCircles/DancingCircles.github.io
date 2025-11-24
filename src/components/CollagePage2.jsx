@@ -35,7 +35,7 @@ const CollagePage2 = () => {
                     </div>
                 </div>
                 <div className="collage-img-block">
-                    <img src="/xoberon.github.io/assets/A2.png" alt="Vintage Art 2" className="collage-main-img" />
+                    <img src="/assets/A2.png" alt="Vintage Art 2" className="collage-main-img" />
                 </div>
             </div>
         </section>

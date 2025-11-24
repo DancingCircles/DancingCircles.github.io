@@ -189,7 +189,7 @@ const BlankPage = () => {
                     <video
                         ref={videoRef}
                         className="content-video"
-                        src="/xoberon.github.io/assets/whiteFerrari.mp4"
+                        src="/assets/whiteFerrari.mp4"
                         loop
                         muted={false}
                         playsInline
@@ -205,7 +205,7 @@ const BlankPage = () => {
                     </div>
 
                     {/* 车 - 右上角装饰 */}
-                    <img src="/xoberon.github.io/assets/whiteferrari.png" alt="White Ferrari" className="car-badge" />
+                    <img src="/assets/whiteferrari.png" alt="White Ferrari" className="car-badge" />
                 </div>
 
                 {/* 底部说明文字 */}
