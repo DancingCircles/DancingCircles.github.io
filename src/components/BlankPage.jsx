@@ -222,7 +222,7 @@ const BlankPage = () => {
                         containerClassName="brand-text-reveal"
                         textClassName="brand-text"
                     >
-                        Hawaii Travel
+                        X OBERON
                     </ScrollReveal>
                 </div>
             </div>
