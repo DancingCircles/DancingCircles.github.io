@@ -24,7 +24,9 @@ body {
 }
 
 /* 隐藏所有元素的默认光标 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   cursor: none !important;
 }
 
@@ -125,4 +127,41 @@ ul {
 
 .custom-scrollbar-thumb:active {
   opacity: 0.9;
+}
+
+/* Mobile Responsive Optimizations */
+@media (max-width: 768px) {
+
+  /* Disable custom cursor on mobile/touch devices */
+  .custom-cursor {
+    display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    cursor: auto !important;
+  }
+
+  /* Optimize scrollbar for mobile */
+  .custom-scrollbar {
+    right: 4px;
+    width: 4px;
+  }
+
+  .custom-scrollbar-thumb {
+    width: 4px;
+    height: 60px;
+  }
+
+  /* Optimize container padding */
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
 }

@@ -123,8 +123,8 @@
 /* Animated Icons Origin */
 .animated-icons-origin {
     position: absolute;
-    bottom: 40px;
-    right: 40px;
+    bottom: 5%;
+    right: 3%;
     display: flex;
     gap: 15px;
     z-index: 20;
@@ -169,8 +169,8 @@
     }
 
     .animated-icons-origin {
-        bottom: 20px;
-        right: 20px;
+        bottom: 3%;
+        right: 3%;
         gap: 10px;
     }
 
@@ -187,6 +187,7 @@
 
     .hero-image-wrapper {
         border-radius: 20px;
+        width: 95%;
     }
 
     .word-the {
@@ -201,13 +202,97 @@
         font-size: 3.5rem;
     }
 
+    .hero-subtitle {
+        font-size: 0.75rem;
+        padding-right: 15%;
+    }
+
     .hero-signature {
         display: none;
     }
 
     /* Hide signature on mobile to avoid clutter */
     .animated-icons-origin {
-        bottom: 20px;
-        right: 20px;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 5px;
+    }
+
+    .hero-image-wrapper {
+        border-radius: 15px;
+        width: 98%;
+        margin-top: 40px;
+    }
+
+    .word-late {
+        font-size: 3.5rem;
+    }
+
+    .word-checkout {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.7rem;
+        padding-right: 10%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .hero-overlay-content {
+        top: 20%;
+    }
+
+    .animated-icons-origin {
+        bottom: 2.5%;
+        right: 2.5%;
+        gap: 8px;
+    }
+
+    .animated-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image-wrapper {
+        border-radius: 12px;
+        margin-top: 30px;
+    }
+
+    .word-late {
+        font-size: 2.5rem;
+    }
+
+    .word-checkout {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+        padding-right: 5%;
+        margin-top: 20px;
+    }
+
+    .hero-overlay-content {
+        top: 18%;
+    }
+
+    .animated-icons-origin {
+        bottom: 2%;
+        right: 2%;
+        gap: 6px;
+    }
+
+    .animated-icon {
+        width: 30px;
+        height: 30px;
     }
 }

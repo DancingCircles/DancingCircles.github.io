@@ -4,7 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 120px 0 40px 0; /* Increased top padding */
+    padding: 120px 0 40px 0;
+    /* Increased top padding */
 }
 
 .awards-section {
@@ -24,16 +25,19 @@
 }
 
 .award {
-    height: 120px; /* Increased from 80px */
+    height: 120px;
+    /* Increased from 80px */
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     cursor: pointer;
 }
 
 .award-wrapper {
     position: relative;
-    height: 360px; /* 120px * 3 */
+    height: 360px;
+    /* 120px * 3 */
     will-change: transform;
-    transform: translateY(-240px); /* Default position (TOP) */
+    transform: translateY(-240px);
+    /* Default position (TOP) */
 }
 
 .award-name,
@@ -42,7 +46,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 120px; /* Increased from 80px */
+    height: 120px;
+    /* Increased from 80px */
     padding: 5px 20px;
     border-bottom: 1px solid #2F3E30;
 }
@@ -60,11 +65,14 @@
 .award-name h1,
 .award-project h1 {
     text-transform: uppercase;
-    font-size: clamp(1.5rem, 3vw, 2.5rem); /* Slightly reduced max font size */
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    /* Slightly reduced max font size */
     font-weight: 800;
     letter-spacing: -1px;
-    line-height: 1.1; /* Increased line height */
-    white-space: normal; /* Allow wrapping */
+    line-height: 1.1;
+    /* Increased line height */
+    white-space: normal;
+    /* Allow wrapping */
     overflow: hidden;
 }
 
@@ -81,12 +89,67 @@
 
     .award-wrapper {
         height: 240px;
-        transform: translateY(-160px);
     }
 
     .award-name,
     .award-project {
         height: 80px;
         padding: 5px 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .empty-page {
+        padding: 100px 0 30px 0;
+    }
+
+    .award {
+        height: 70px;
+    }
+
+    .award-wrapper {
+        height: 210px;
+    }
+
+    .award-name,
+    .award-project {
+        height: 70px;
+        padding: 5px 12px;
+    }
+
+    .award-name h1,
+    .award-project h1 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .empty-page {
+        padding: 80px 0 25px 0;
+    }
+
+    .awards-title {
+        font-size: 1.2rem;
+        padding: 5px 15px;
+    }
+
+    .award {
+        height: 60px;
+    }
+
+    .award-wrapper {
+        height: 180px;
+    }
+
+    .award-name,
+    .award-project {
+        height: 60px;
+        padding: 5px 10px;
+    }
+
+    .award-name h1,
+    .award-project h1 {
+        font-size: 0.85rem;
+        letter-spacing: -0.5px;
     }
 }

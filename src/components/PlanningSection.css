@@ -24,7 +24,7 @@
     max-width: 100%;
     text-align: center;
     color: #141414;
-    font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+    font-size: clamp(1.2rem, 3.5vw, 3.5rem);
     font-weight: 800;
     line-height: 1.4;
     font-family: 'Host Grotesk', sans-serif;
@@ -51,6 +51,37 @@
     margin: 0 10px;
     position: relative;
     top: -5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Show placeholder icons directly on smaller screens (≤1200px) */
+@media (max-width: 1200px) {
+    .placeholder-icon {
+        visibility: visible !important;
+    }
+
+    /* Assign background images to each icon */
+    .line:nth-child(1) .placeholder-icon:nth-child(1) {
+        background-image: url('/assets/1.png');
+    }
+
+    .line:nth-child(2) .placeholder-icon {
+        background-image: url('/assets/2.png');
+    }
+
+    .line:nth-child(3) .placeholder-icon {
+        background-image: url('/assets/3.png');
+    }
+
+    .line:nth-child(4) .placeholder-icon:nth-child(2) {
+        background-image: url('/assets/4.png');
+    }
+
+    .line:nth-child(4) .placeholder-icon:nth-child(4) {
+        background-image: url('/assets/5.png');
+    }
 }
 
 @media (max-width: 1000px) {
@@ -63,5 +94,36 @@
 
     .line {
         white-space: normal;
+    }
+}
+
+@media (max-width: 600px) {
+    .animated-text {
+        font-size: clamp(1rem, 4vw, 2rem);
+        line-height: 1.5;
+    }
+
+    .placeholder-icon {
+        width: 25px;
+        height: 25px;
+        margin: 0 4px;
+        top: -2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .animated-text {
+        font-size: clamp(0.9rem, 4.5vw, 1.5rem);
+    }
+
+    .placeholder-icon {
+        width: 22px;
+        height: 22px;
+        margin: 0 3px;
+        top: -1px;
+    }
+
+    .planning-section {
+        padding: 1rem;
     }
 }

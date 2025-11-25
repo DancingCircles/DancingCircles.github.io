@@ -72,5 +72,24 @@
     .nav-link {
         font-size: 0.8rem;
         letter-spacing: 0.5px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 15px;
+    }
+
+    .nav-list {
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 0.7rem;
+        letter-spacing: 0.3px;
+        padding: 5px 8px;
     }
 }

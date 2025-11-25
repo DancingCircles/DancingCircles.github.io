@@ -174,6 +174,104 @@
     }
 }
 
+@media (max-width: 768px) {
+    .collage-page-1 {
+        padding: 30px 20px;
+    }
+
+    .collage-page-1 .hello-title {
+        font-size: 6rem;
+        letter-spacing: -6px;
+    }
+
+    .collage-page-1 .hello-flower {
+        width: 70px;
+        right: -30px;
+    }
+
+    .collage-page-1 .collage-main-img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .info-text-area {
+        transform: scale(1);
+    }
+
+    .collage-page-1 .info-value {
+        font-size: 1.6rem;
+    }
+
+    .collage-page-1 .info-label {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .collage-page-1 {
+        padding: 25px 15px;
+    }
+
+    .collage-page-1 .hello-title {
+        font-size: 4rem;
+        letter-spacing: -4px;
+    }
+
+    .collage-page-1 .hello-flower {
+        width: 60px;
+        right: -25px;
+    }
+
+    .collage-page-1 .collage-main-img {
+        max-width: 350px;
+    }
+
+    .collage-page-1 .info-value {
+        font-size: 1.3rem;
+    }
+
+    .collage-page-1 .info-item {
+        grid-template-columns: 110px 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .collage-page-1 {
+        padding: 20px 10px;
+    }
+
+    .collage-page-1 .hello-title {
+        font-size: 3rem;
+        letter-spacing: -3px;
+    }
+
+    .collage-page-1 .hello-flower {
+        width: 50px;
+        right: -20px;
+    }
+
+    .collage-page-1 .collage-main-img {
+        max-width: 300px;
+    }
+
+    .collage-page-1 .info-label {
+        font-size: 0.8rem;
+    }
+
+    .collage-page-1 .info-value {
+        font-size: 1.1rem;
+    }
+
+    .collage-page-1 .info-item {
+        grid-template-columns: 90px 1fr;
+        gap: 20px;
+    }
+
+    .collage-page-1 .info-list {
+        gap: 20px;
+    }
+}
+
 /* Bouncing Ball Decoration Styles */
 .ball-decoration-area {
     display: flex;
@@ -393,6 +491,112 @@
 
     .collage-text-block {
         margin-bottom: 40px;
+    }
+}
+
+/* CollagePage2 Mobile Optimizations */
+@media (max-width: 768px) {
+    .collage-page-2 {
+        padding: 40px 20px;
+    }
+
+    .concept-title {
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+    }
+
+    .concept-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .concept-text-cn {
+        font-size: 1.3rem;
+    }
+
+    .concept-text-en {
+        font-size: 1.1rem;
+    }
+
+    .footprint-decoration {
+        width: 180px;
+        top: -100px;
+        left: 30%;
+    }
+
+    .collage-page-2 .collage-main-img {
+        margin-right: -20px;
+        margin-top: -30px;
+        margin-left: -50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .collage-page-2 {
+        padding: 30px 15px;
+    }
+
+    .concept-title {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+
+    .concept-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .concept-text-cn {
+        font-size: 1.1rem;
+    }
+
+    .concept-text-en {
+        font-size: 0.95rem;
+    }
+
+    .footprint-decoration {
+        width: 120px;
+        top: -60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .collage-page-2 {
+        padding: 25px 10px;
+    }
+
+    .concept-title {
+        font-size: 1.3rem;
+        letter-spacing: 0.5px;
+        flex-wrap: wrap;
+    }
+
+    .concept-subtitle {
+        font-size: 1rem;
+    }
+
+    .concept-text-cn {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .concept-text-en {
+        font-size: 0.85rem;
+    }
+
+    .concept-header {
+        margin-bottom: 25px;
+    }
+
+    .footprint-decoration {
+        display: none;
+    }
+
+    .collage-page-2 .collage-main-img {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .collage-page-2 .collage-text-block {
+        margin-right: 0;
     }
 }
 

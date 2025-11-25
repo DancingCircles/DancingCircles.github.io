@@ -55,45 +55,6 @@ const MottoSection = () => {
                 stagger: 0.3
             }, "-=0.5");
 
-            // Background-only 3D Effect (text stays flat)
-            const handleMouseMove = (e) => {
-                if (!sectionRef.current || !bgLayerRef.current) return;
-
-                const rect = sectionRef.current.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-                // Background image layer - subtle parallax
-                gsap.to(bgLayerRef.current, {
-                    rotateY: x * 5,
-                    rotateX: -y * 5,
-                    z: -20,
-                    x: x * 30,
-                    y: y * 30,
-                    duration: 0.6,
-                    ease: "power2.out"
-                });
-            };
-
-            const handleMouseLeave = () => {
-                gsap.to(bgLayerRef.current, {
-                    rotateY: 0,
-                    rotateX: 0,
-                    z: 0,
-                    x: 0,
-                    y: 0,
-                    duration: 0.8,
-                    ease: "power2.out"
-                });
-            };
-
-            sectionRef.current?.addEventListener('mousemove', handleMouseMove);
-            sectionRef.current?.addEventListener('mouseleave', handleMouseLeave);
-
-            return () => {
-                sectionRef.current?.removeEventListener('mousemove', handleMouseMove);
-                sectionRef.current?.removeEventListener('mouseleave', handleMouseLeave);
-            };
         }, sectionRef);
 
         return () => ctx.revert();

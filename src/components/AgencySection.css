@@ -46,13 +46,17 @@
     z-index: 1;
     position: absolute;
     width: 100%;
-    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+.intro-content {
+    top: 20%;
+}
+
 .contact-content {
     opacity: 0;
+    top: 25%;
     /* Initial state handled by GSAP, but good for fallback */
 }
 
@@ -170,16 +174,76 @@
 }
 
 @media (max-width: 768px) {
+    .agency-section {
+        padding: 80px 20px 60px;
+    }
+
+    .agency-content {
+        top: 20%;
+    }
+
     .agency-title {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        letter-spacing: 3px;
     }
 
     .agency-role {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+        letter-spacing: 1.5px;
     }
 
     .agency-status {
-        font-size: 0.9rem;
+        font-size: 1rem;
+    }
+
+    .agency-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .contact-title {
+        font-size: 1.2rem;
+        letter-spacing: 1.5px;
+    }
+
+    .contact-info,
+    .expertise-text {
+        font-size: 1rem;
+    }
+
+    .github-corner {
+        top: 20px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .agency-section {
+        padding: 60px 15px 50px;
+    }
+
+    .agency-content {
+        top: 18%;
+    }
+
+    .agency-title {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+    }
+
+    .agency-role {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .agency-status {
+        font-size: 0.95rem;
+        margin-bottom: 50px;
+    }
+
+    .agency-subtitle {
+        font-size: 1.2rem;
+        line-height: 1.5;
     }
 
     .contact-title {
@@ -190,9 +254,65 @@
     .expertise-text {
         font-size: 0.95rem;
     }
+}
+
+@media (max-width: 480px) {
+    .agency-section {
+        padding: 50px 10px 40px;
+    }
+
+    .agency-content {
+        top: 15%;
+    }
+
+    .agency-title {
+        font-size: 1.8rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 25px;
+    }
+
+    .agency-role {
+        font-size: 1rem;
+        letter-spacing: 0.8px;
+        margin-bottom: 8px;
+    }
+
+    .agency-status {
+        font-size: 0.85rem;
+        margin-bottom: 40px;
+    }
+
+    .agency-subtitle {
+        font-size: 1rem;
+    }
+
+    .contact-block {
+        margin-bottom: 35px;
+    }
+
+    .contact-title {
+        font-size: 1rem;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .contact-info,
+    .expertise-text {
+        font-size: 0.85rem;
+        line-height: 1.7;
+    }
+
+    .expertise-block {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
 
     .github-corner {
-        top: 20px;
-        left: 20px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .github-text {
+        font-size: 1rem;
     }
 }

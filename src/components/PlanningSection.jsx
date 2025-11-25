@@ -24,6 +24,9 @@ const PlanningSection = () => {
                 // Initial setup
                 gsap.set(textSegments, { opacity: 0, y: 20 });
 
+                // Only run flying animation on large screens (fullscreen or near-fullscreen)
+                const isLargeScreen = window.innerWidth > 1200;
+
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: sectionRef.current,
@@ -33,27 +36,37 @@ const PlanningSection = () => {
                     }
                 });
 
-                // Calculate positions
-                placeholders.forEach((placeholder, index) => {
-                    if (icons[index]) {
-                        const icon = icons[index];
+                if (isLargeScreen) {
+                    // Calculate positions for flying animation
+                    placeholders.forEach((placeholder, index) => {
+                        if (icons[index]) {
+                            const icon = icons[index];
 
-                        const iconRect = icon.getBoundingClientRect();
-                        const placeholderRect = placeholder.getBoundingClientRect();
+                            const iconRect = icon.getBoundingClientRect();
+                            const placeholderRect = placeholder.getBoundingClientRect();
 
-                        const deltaX = placeholderRect.left - iconRect.left;
-                        const deltaY = placeholderRect.top - iconRect.top;
+                            const deltaX = placeholderRect.left - iconRect.left;
+                            const deltaY = placeholderRect.top - iconRect.top;
 
-                        tl.to(icon, {
-                            x: deltaX,
-                            y: deltaY,
-                            width: placeholderRect.width,
-                            height: placeholderRect.height,
-                            rotation: index % 2 === 0 ? 5 : -5,
-                            ease: "power1.inOut"
-                        }, 0);
-                    }
-                });
+                            tl.to(icon, {
+                                x: deltaX,
+                                y: deltaY,
+                                width: placeholderRect.width,
+                                height: placeholderRect.height,
+                                rotation: index % 2 === 0 ? 5 : -5,
+                                ease: "power1.inOut"
+                            }, 0);
+                        }
+                    });
+                } else {
+                    // On smaller screens, hide hero icons and show placeholder content directly
+                    icons.forEach(icon => {
+                        gsap.set(icon, { opacity: 0, display: 'none' });
+                    });
+                    placeholders.forEach(placeholder => {
+                        gsap.set(placeholder, { visibility: 'visible' });
+                    });
+                }
 
                 // Text Animation
                 tl.to(textSegments, {

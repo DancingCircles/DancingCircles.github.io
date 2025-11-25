@@ -330,7 +330,7 @@
     background-color: rgba(0, 0, 0, 0.1);
     transition: opacity 0.3s;
     z-index: 5;
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 .play-overlay.hidden {
@@ -414,6 +414,45 @@
     opacity: 0.8;
 }
 
+/* Inverted Bouncing Ball Decorations for Video Page */
+.ball-decoration-video {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ball-video-left {
+    right: 6.5%;
+    left: auto;
+    top: 29%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center center;
+    padding: 0;
+}
+
+.ball-video-right {
+    left: 6.5%;
+    right: auto;
+    top: 68%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center center;
+    padding: 0;
+}
+
+.bouncing-ball-svg-inverted {
+    width: 200px;
+    max-height: 400px;
+    opacity: 0;
+}
+
+.bouncing-ball-svg-inverted .ball-shadow {
+    opacity: 0.6;
+    fill: #333;
+}
+
 @media (max-width: 1024px) {
     .typography-art span[class^="letter-"] {
         font-size: 4rem;
@@ -423,6 +462,10 @@
     .letter-a,
     .letter-t {
         font-size: 5rem;
+    }
+
+    .ball-decoration-video {
+        display: none;
     }
 }
 
@@ -461,43 +504,6 @@
     }
 }
 
-/* Inverted Bouncing Ball Decorations for Video Page */
-.ball-decoration-video {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-}
-
-.ball-video-left {
-    right: 6.5%;
-    left: auto;
-    top: 29%;
-    transform: translateY(-50%) rotate(-90deg);
-    transform-origin: center center;
-    padding: 0;
-}
-
-.ball-video-right {
-    left: 6.5%;
-    right: auto;
-    top: 68%;
-    transform: translateY(-50%) rotate(90deg);
-    transform-origin: center center;
-    padding: 0;
-}
-
-.bouncing-ball-svg-inverted {
-    width: 200px;
-    max-height: 400px;
-    opacity: 0;
-}
-
-.bouncing-ball-svg-inverted .ball-shadow {
-    opacity: 0.6;
-    fill: #333;
-}
 /* ScrollReveal Customizations for BlankPage */
 .video-caption-reveal,
 .brand-text-reveal {
